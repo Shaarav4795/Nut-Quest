@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://41h5nxrmwa0p"]
 
 [ext_resource type="Texture2D" uid="uid://b2r744bep8lby" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_top_left.png" id="1_wdc5c"]
+[ext_resource type="Texture2D" uid="uid://db8j5o3al5jp2" path="res://assets/Sprites/Backgrounds/Default/background_solid_sky.png" id="2_ga837"]
 [ext_resource type="Texture2D" uid="uid://pv0li47wentx" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_top.png" id="2_jyww5"]
 [ext_resource type="Texture2D" uid="uid://b3dmgtfi4pm35" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_top_right.png" id="3_ewor0"]
+[ext_resource type="Texture2D" uid="uid://dyuo5vep05da1" path="res://assets/Sprites/Backgrounds/Default/background_clouds.png" id="3_swapm"]
+[ext_resource type="Texture2D" uid="uid://drk114v4crrqs" path="res://assets/Sprites/Backgrounds/Default/background_fade_trees.png" id="4_hkufj"]
 [ext_resource type="Texture2D" uid="uid://elry8618d3d3" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_bottom_right.png" id="4_lkxmd"]
 [ext_resource type="Texture2D" uid="uid://cfap2jjnmhpbw" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_bottom_left.png" id="5_vigbq"]
 [ext_resource type="Texture2D" uid="uid://dhxm6jcr53rqp" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_bottom.png" id="6_g6sy5"]
@@ -24,6 +27,7 @@
 [ext_resource type="Script" uid="uid://1giq0ktskn53" path="res://scenes/level/level_1.gd" id="21_level"]
 [ext_resource type="Texture2D" uid="uid://dl0gc8nyfh7fj" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_top.png" id="22_13hc6"]
 [ext_resource type="PackedScene" path="res://scenes/objects/echidna.tscn" id="23_echidna"]
+[ext_resource type="Texture2D" uid="uid://byjvxw4sw0mr2" path="res://assets/squirrel/slingshot.png" id="28_rfyx5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(447, 128)
@@ -55,11 +59,61 @@ size = Vector2(66, 193)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyu71"]
 size = Vector2(1665.5, 129)
 
-[node name="level_1" type="Node2D" unique_id=1230994277]
+[node name="level_2" type="Node2D" unique_id=1230994277]
 position = Vector2(54, 427)
 script = ExtResource("21_level")
 
 [node name="Terrain" type="Node2D" parent="." unique_id=704895295]
+
+[node name="BackgroundSolidSky" type="Sprite2D" parent="Terrain" unique_id=2083544108]
+position = Vector2(581.74963, -659)
+scale = Vector2(29.705074, 14.1015625)
+texture = ExtResource("2_ga837")
+
+[node name="BackgroundClouds" type="Sprite2D" parent="Terrain" unique_id=1837169541]
+position = Vector2(-2586.0002, -2011)
+scale = Vector2(4.9497085, 3.1806638)
+texture = ExtResource("3_swapm")
+
+[node name="BackgroundClouds2" type="Sprite2D" parent="Terrain" unique_id=870813260]
+position = Vector2(-1319.0002, -2011)
+scale = Vector2(4.9497085, 3.1806638)
+texture = ExtResource("3_swapm")
+
+[node name="BackgroundClouds3" type="Sprite2D" parent="Terrain" unique_id=907202416]
+position = Vector2(-52.00049, -2011)
+scale = Vector2(4.9497085, 3.1806638)
+texture = ExtResource("3_swapm")
+
+[node name="BackgroundClouds4" type="Sprite2D" parent="Terrain" unique_id=255535012]
+position = Vector2(1214.9998, -2011)
+scale = Vector2(4.9497085, 3.1806638)
+texture = ExtResource("3_swapm")
+
+[node name="BackgroundClouds5" type="Sprite2D" parent="Terrain" unique_id=932264682]
+position = Vector2(2481.9988, -2011)
+scale = Vector2(4.9497085, 3.1806638)
+texture = ExtResource("3_swapm")
+
+[node name="BackgroundClouds6" type="Sprite2D" parent="Terrain" unique_id=915147634]
+position = Vector2(3749, -2011)
+scale = Vector2(4.9497085, 3.1806638)
+texture = ExtResource("3_swapm")
+
+[node name="BackgroundTREES" type="Sprite2D" parent="Terrain" unique_id=1216272669]
+position = Vector2(-1408.2813, -228.99991)
+scale = Vector2(7.11, 5.371)
+texture = ExtResource("4_hkufj")
+
+[node name="BackgroundTREES2" type="Sprite2D" parent="Terrain" unique_id=1737594651]
+position = Vector2(2169, -229.50006)
+scale = Vector2(7.11, 5.369)
+texture = ExtResource("4_hkufj")
+
+[node name="BackgroundTREES3" type="Sprite2D" parent="Terrain" unique_id=1867053892]
+position = Vector2(5806.9995, -229.00003)
+scale = Vector2(7.11, 5.369)
+texture = ExtResource("4_hkufj")
 
 [node name="Ground" type="StaticBody2D" parent="Terrain" unique_id=1039308314]
 
@@ -233,7 +287,7 @@ position = Vector2(316, -645)
 texture = ExtResource("14_m3417")
 
 [node name="Player" parent="Terrain/Ground" unique_id=1775000001 instance=ExtResource("15_player")]
-position = Vector2(170, -162)
+position = Vector2(105, -136)
 
 [node name="PoisonIvy" type="Sprite2D" parent="Terrain/Ground" unique_id=1573595330]
 position = Vector2(873, -44)
@@ -951,3 +1005,8 @@ patrol_right = 150.0
 position = Vector2(128, -1355)
 patrol_left = -150.0
 patrol_right = 150.0
+
+[node name="Slingshot" type="Sprite2D" parent="." unique_id=1439120731]
+position = Vector2(15.999996, -22)
+scale = Vector2(0.43960243, 0.330292)
+texture = ExtResource("28_rfyx5")

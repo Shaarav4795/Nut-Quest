@@ -1,0 +1,154 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/level_select.gd" id="1_script"]
+[ext_resource type="Theme" path="res://scenes/ui/ui_theme.tres" id="2_theme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.68, 0.42, 0.45)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="BackgroundFallback" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.36, 0.63, 0.75, 1)
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Card" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 44.0
+offset_right = 816.0
+offset_bottom = 533.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="LevelLabel" type="Label" parent="Card"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 584.0
+offset_bottom = 64.0
+mouse_filter = 2
+theme_override_font_sizes/font_size = 32
+text = "LEVEL 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviewFrame" type="Control" parent="Card"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 76.0
+offset_right = 584.0
+offset_bottom = 391.0
+
+[node name="NoPreview" type="ColorRect" parent="Card/PreviewFrame"]
+layout_mode = 0
+offset_right = 560.0
+offset_bottom = 315.0
+mouse_filter = 2
+color = Color(0.15, 0.13, 0.11, 1)
+
+[node name="Preview" type="TextureRect" parent="Card/PreviewFrame"]
+layout_mode = 0
+offset_right = 560.0
+offset_bottom = 315.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="LockOverlay" type="Control" parent="Card/PreviewFrame"]
+visible = false
+layout_mode = 0
+offset_right = 560.0
+offset_bottom = 315.0
+
+[node name="LockDim" type="ColorRect" parent="Card/PreviewFrame/LockOverlay"]
+layout_mode = 0
+offset_right = 560.0
+offset_bottom = 315.0
+color = Color(0, 0, 0, 0.72)
+
+[node name="LockLabel" type="Label" parent="Card/PreviewFrame/LockOverlay"]
+layout_mode = 0
+offset_right = 560.0
+offset_bottom = 315.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.93, 0.76, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.12, 0.05, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 54
+text = "LOCKED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="Card"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 405.0
+offset_right = 444.0
+offset_bottom = 465.0
+text = "PLAY"
+
+[node name="LeftButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 229.0
+offset_right = 176.0
+offset_bottom = 325.0
+theme_override_font_sizes/font_size = 44
+text = "<"
+
+[node name="RightButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 848.0
+offset_top = 229.0
+offset_right = 920.0
+offset_bottom = 325.0
+theme_override_font_sizes/font_size = 44
+text = ">"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 44.0
+offset_right = 176.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 24
+text = "BACK"
+
+[connection signal="pressed" from="LeftButton" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="RightButton" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="Card/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_pressed"]

@@ -1,0 +1,176 @@
+[gd_scene format=3 uid="uid://bjruqanlf3os3"]
+
+[ext_resource type="Script" uid="uid://d1jamutjev0kn" path="res://scenes/ui/main_menu.gd" id="1_script"]
+[ext_resource type="Theme" uid="uid://cyu7dpmmhmns" path="res://scenes/ui/ui_theme.tres" id="2_theme"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_buttons"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85, 0.68, 0.42, 0.35)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_credits"]
+content_margin_left = 32.0
+content_margin_top = 24.0
+content_margin_right = 32.0
+content_margin_bottom = 24.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.68, 0.42, 0.45)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[node name="MainMenu" type="Control" unique_id=629688786]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="BackgroundFallback" type="ColorRect" parent="." unique_id=122725424]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.36, 0.63, 0.75, 1)
+
+[node name="Background" type="TextureRect" parent="." unique_id=1611984072]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TitleArt" type="TextureRect" parent="." unique_id=1884032993]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 40.0
+offset_right = 576.0
+offset_bottom = 220.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TitleText" type="Label" parent="." unique_id=1698157349]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 40.0
+offset_right = 576.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(1, 0.93, 0.76, 1)
+theme_override_colors/font_outline_color = Color(0.2, 0.12, 0.05, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 76
+text = "drop from canva"
+vertical_alignment = 1
+
+[node name="ButtonsPanel" type="Panel" parent="." unique_id=1569421099]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 348.0
+offset_right = 976.0
+offset_bottom = 540.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_buttons")
+
+[node name="PlayButton" type="Button" parent="ButtonsPanel" unique_id=1175424830]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 300.0
+offset_bottom = 88.0
+text = "PLAY"
+
+[node name="CreditsButton" type="Button" parent="ButtonsPanel" unique_id=1291159332]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 100.0
+offset_right = 300.0
+offset_bottom = 172.0
+text = "CREDITS"
+
+[node name="CreditsOverlay" type="Control" parent="." unique_id=503713663]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="CreditsOverlay" unique_id=821787250]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.62)
+
+[node name="Panel" type="Panel" parent="CreditsOverlay" unique_id=924358677]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 96.0
+offset_right = 812.0
+offset_bottom = 480.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_credits")
+
+[node name="CreditsTitle" type="Label" parent="CreditsOverlay/Panel" unique_id=637483545]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 568.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0.95, 0.79, 0.52, 1)
+theme_override_font_sizes/font_size = 40
+text = "CREDITS"
+horizontal_alignment = 1
+
+[node name="CreditsText" type="Label" parent="CreditsOverlay/Panel" unique_id=1885421919]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 568.0
+offset_bottom = 300.0
+theme_override_font_sizes/font_size = 20
+text = "Made with love by Shaarav, Kian, and Darsh
+
+Thanks to Haven Sydney for making this possible
+
+Thanks to Godot Game Engine"
+
+[node name="CloseButton" type="Button" parent="CreditsOverlay/Panel" unique_id=566799047]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 308.0
+offset_right = 380.0
+offset_bottom = 364.0
+text = "CLOSE"
+
+[connection signal="pressed" from="ButtonsPanel/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="ButtonsPanel/CreditsButton" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="CreditsOverlay/Panel/CloseButton" to="." method="_on_close_pressed"]
