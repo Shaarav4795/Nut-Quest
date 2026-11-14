@@ -86,7 +86,7 @@ theme_override_colors/font_color = Color(1, 0.93, 0.76, 1)
 theme_override_colors/font_outline_color = Color(0.2, 0.12, 0.05, 1)
 theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 76
-text = "drop from canva"
+text = "change later"
 vertical_alignment = 1
 
 [node name="ButtonsPanel" type="Panel" parent="." unique_id=1569421099]
@@ -159,9 +159,9 @@ offset_bottom = 300.0
 theme_override_font_sizes/font_size = 20
 text = "Made with love by Shaarav, Kian, and Darsh
 
-Thanks to Haven Sydney for making this possible
+Thanks to Kenney for game assets
 
-Thanks to Godot Game Engine"
+Thanks to Fesliyan Studios for music"
 
 [node name="CloseButton" type="Button" parent="CreditsOverlay/Panel" unique_id=566799047]
 layout_mode = 0
