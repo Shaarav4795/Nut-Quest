@@ -21,9 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://b62abek3k2yfb" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_left.png" id="19_ox3e1"]
 [ext_resource type="Texture2D" uid="uid://ufwghdd2xi2j" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_bottom.png" id="20_m5nsq"]
 [ext_resource type="Texture2D" uid="uid://dyq5tthm4g0ye" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_middle.png" id="21_8e0j7"]
+[ext_resource type="Script" uid="uid://1giq0ktskn53" path="res://scenes/level/level_1.gd" id="21_level"]
 [ext_resource type="Texture2D" uid="uid://dl0gc8nyfh7fj" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_top.png" id="22_13hc6"]
 [ext_resource type="PackedScene" path="res://scenes/objects/echidna.tscn" id="23_echidna"]
-[ext_resource type="Script" path="res://scenes/level/level_1.gd" id="21_level"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(447, 128)
@@ -652,5 +652,15 @@ texture = ExtResource("11_vigbq")
 
 [node name="Echidna" parent="." unique_id=1982091274 instance=ExtResource("23_echidna")]
 position = Vector2(403, -680)
+patrol_left = -150.0
+patrol_right = 150.0
+
+[node name="Echidna2" parent="." unique_id=1463774848 instance=ExtResource("23_echidna")]
+position = Vector2(-1251, -1091)
+patrol_left = -150.0
+patrol_right = 150.0
+
+[node name="Echidna3" parent="." unique_id=172767792 instance=ExtResource("23_echidna")]
+position = Vector2(128, -1355)
 patrol_left = -150.0
 patrol_right = 150.0
