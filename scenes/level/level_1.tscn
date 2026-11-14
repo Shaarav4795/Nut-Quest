@@ -28,6 +28,10 @@
 [ext_resource type="Texture2D" uid="uid://dl0gc8nyfh7fj" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_top.png" id="22_13hc6"]
 [ext_resource type="PackedScene" path="res://scenes/objects/echidna.tscn" id="23_echidna"]
 [ext_resource type="Texture2D" uid="uid://byjvxw4sw0mr2" path="res://assets/squirrel/slingshot.png" id="28_rfyx5"]
+[ext_resource type="Script" uid="uid://nxseusgdwfc3" path="res://scenes/objects/slingshot.gd" id="29_slingshot"]
+[ext_resource type="Script" uid="uid://boobqan3v1w4t" path="res://scenes/ui/launch_ui.gd" id="30_launchui"]
+[ext_resource type="Theme" uid="uid://cyu7dpmmhmns" path="res://scenes/ui/ui_theme.tres" id="31_theme"]
+[ext_resource type="Script" path="res://scenes/ui/pause_ui.gd" id="32_pauseui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(447, 128)
@@ -58,6 +62,18 @@ size = Vector2(66, 193)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyu71"]
 size = Vector2(1665.5, 129)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pause"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.68, 0.42, 0.5)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
 
 [node name="level_2" type="Node2D" unique_id=1230994277]
 position = Vector2(54, 427)
@@ -287,7 +303,11 @@ position = Vector2(316, -645)
 texture = ExtResource("14_m3417")
 
 [node name="Player" parent="Terrain/Ground" unique_id=1775000001 instance=ExtResource("15_player")]
-position = Vector2(105, -136)
+z_index = 1
+position = Vector2(95, -248)
+
+[node name="LaunchTarget" type="Marker2D" parent="Terrain/Ground" unique_id=1999000001]
+position = Vector2(794, -152)
 
 [node name="PoisonIvy" type="Sprite2D" parent="Terrain/Ground" unique_id=1573595330]
 position = Vector2(873, -44)
@@ -1006,7 +1026,115 @@ position = Vector2(128, -1355)
 patrol_left = -150.0
 patrol_right = 150.0
 
-[node name="Slingshot" type="Sprite2D" parent="." unique_id=1439120731]
-position = Vector2(15.999996, -22)
-scale = Vector2(0.43960243, 0.330292)
+[node name="Slingshot" type="Node2D" parent="." unique_id=1439120731]
+position = Vector2(105, -112)
+scale = Vector2(0.175, 0.175)
+script = ExtResource("29_slingshot")
+
+[node name="Art" type="Sprite2D" parent="Slingshot" unique_id=1543483722]
 texture = ExtResource("28_rfyx5")
+
+[node name="Muzzle" type="Marker2D" parent="Slingshot" unique_id=317242981]
+position = Vector2(-57.1, -777.1)
+
+[node name="LaunchUI" type="CanvasLayer" parent="." unique_id=1944190483]
+script = ExtResource("30_launchui")
+
+[node name="Root" type="Control" parent="LaunchUI" unique_id=790497161]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = 1.0
+offset_right = -92.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("31_theme")
+
+[node name="LaunchButton" type="Button" parent="LaunchUI/Root" unique_id=482202085]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 466.0
+offset_right = 984.0
+offset_bottom = 526.0
+text = "LAUNCH"
+
+[node name="PauseUI" type="CanvasLayer" parent="."]
+script = ExtResource("32_pauseui")
+
+[node name="Root" type="Control" parent="PauseUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("31_theme")
+
+[node name="BackButton" type="Button" parent="PauseUI/Root"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 174.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 24
+text = "BACK"
+
+[node name="Overlay" type="Control" parent="PauseUI/Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="PauseUI/Root/Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="Panel" type="Panel" parent="PauseUI/Root/Overlay"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 148.0
+offset_right = 752.0
+offset_bottom = 428.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pause")
+
+[node name="PauseTitle" type="Label" parent="PauseUI/Root/Overlay/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 456.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.95, 0.79, 0.52, 1)
+theme_override_font_sizes/font_size = 42
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseUI/Root/Overlay/Panel"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 104.0
+offset_right = 380.0
+offset_bottom = 164.0
+text = "RESUME"
+
+[node name="ExitButton" type="Button" parent="PauseUI/Root/Overlay/Panel"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 180.0
+offset_right = 380.0
+offset_bottom = 240.0
+text = "EXIT"

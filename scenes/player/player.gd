@@ -6,24 +6,58 @@ extends CharacterBody2D
 @export var idle_fall_cap := 900.0
 
 @export var bounce_boost := 1.18
-@export var bounce_natural := 0.87
-@export var min_bounce := 500.0
+@export var bounce_natural := 0.94
+@export var min_bounce := 390.0
 @export var max_bounce := 1300.0
 
 @export var air_steer := 900.0
 @export var max_side := 420.0
 
-@export var spin_speed := 9.0
+@export var spin_speed := 25.0
 
 @onready var sprite: Sprite2D = $Sprite
 
 var _spawn_point := Vector2.ZERO
-
 var _spin_dir := 1
+var _held := false
+var _hold_on_respawn := false
+var _launching := false
 
 
 func _ready() -> void:
 	_spawn_point = position
+
+
+func is_held() -> bool:
+	return _held
+
+
+func is_launching() -> bool:
+	return _launching
+
+
+func hold(point: Vector2) -> void:
+	global_position = point
+	velocity = Vector2.ZERO
+	_spin_dir = 1
+	_held = true
+	_hold_on_respawn = true
+	_launching = false
+	sprite.rotation = 0.0
+	sprite.offset = Vector2.ZERO
+
+
+func release_hold() -> void:
+	_held = false
+	_hold_on_respawn = false
+
+
+func launch_to(target: Vector2, flight_time: float) -> void:
+	var t := maxf(flight_time, 0.05)
+	var d := target - global_position
+	velocity = Vector2(d.x / t, d.y / t - 0.5 * gravity * t)
+	_held = false
+	_launching = true
 
 
 func respawn() -> void:
@@ -31,9 +65,24 @@ func respawn() -> void:
 	velocity = Vector2.ZERO
 	_spin_dir = 1
 	sprite.rotation = 0.0
+	sprite.offset = Vector2.ZERO
+	_launching = false
+	_held = _hold_on_respawn
 
 
 func _physics_process(delta: float) -> void:
+	if _held:
+		return
+
+	if _launching:
+		velocity.y += gravity * delta
+		move_and_slide()
+		_roll(signf(velocity.x), delta)
+		if is_on_floor():
+			_launching = false
+			velocity = Vector2.ZERO
+		return
+
 	var charging := Input.is_action_pressed("charge_down")
 	var dir := Input.get_axis("move_left", "move_right")
 
@@ -52,7 +101,13 @@ func _physics_process(delta: float) -> void:
 		var restitution := bounce_boost if charging else bounce_natural
 		velocity.y = -clampf(impact_speed * restitution, min_bounce, max_bounce)
 
+	if dir != 0.0:
+		_roll(dir, delta)
+	else:
+		_unwind(delta)
 
+
+func _roll(dir: float, delta: float) -> void:
 	if dir > 0.0:
 		_spin_dir = 1
 		sprite.rotation += spin_speed * delta
@@ -61,9 +116,11 @@ func _physics_process(delta: float) -> void:
 		_spin_dir = -1
 		sprite.rotation -= spin_speed * delta
 		sprite.flip_h = true
-	else:
-		var turns := sprite.rotation / TAU
-		var target := (ceilf(turns) if _spin_dir > 0 else floorf(turns)) * TAU
-		sprite.rotation = move_toward(sprite.rotation, target, spin_speed * delta)
-		if is_equal_approx(sprite.rotation, target):
-			sprite.rotation = 0.0
+
+
+func _unwind(delta: float) -> void:
+	var turns := sprite.rotation / TAU
+	var target := (ceilf(turns) if _spin_dir > 0 else floorf(turns)) * TAU
+	sprite.rotation = move_toward(sprite.rotation, target, spin_speed * delta)
+	if is_equal_approx(sprite.rotation, target):
+		sprite.rotation = 0.0
