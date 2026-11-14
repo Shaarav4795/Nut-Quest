@@ -38,6 +38,9 @@ size = Vector2(317, 63)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oprr4"]
 size = Vector2(512, 191.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66d6i"]
+size = Vector2(64.5, 53)
+
 [node name="level_1" type="Node2D" unique_id=1230994277]
 position = Vector2(54, 427)
 
@@ -127,6 +130,10 @@ shape = SubResource("RectangleShape2D_0b80s")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Terrain/Ground" unique_id=489392851]
 position = Vector2(-313, -684.25)
 shape = SubResource("RectangleShape2D_oprr4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Terrain/Ground" unique_id=648562469]
+position = Vector2(588.75, 60.5)
+shape = SubResource("RectangleShape2D_66d6i")
 
 [node name="TerrainGrassCloud" type="Sprite2D" parent="." unique_id=1259748542]
 position = Vector2(589, 66)
