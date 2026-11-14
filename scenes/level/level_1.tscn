@@ -32,6 +32,7 @@
 [ext_resource type="Script" uid="uid://boobqan3v1w4t" path="res://scenes/ui/launch_ui.gd" id="30_launchui"]
 [ext_resource type="Theme" uid="uid://cyu7dpmmhmns" path="res://scenes/ui/ui_theme.tres" id="31_theme"]
 [ext_resource type="Script" path="res://scenes/ui/pause_ui.gd" id="32_pauseui"]
+[ext_resource type="Script" path="res://scenes/ui/death_ui.gd" id="33_deathui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(447, 128)
@@ -1045,10 +1046,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -92.0
-offset_top = 1.0
-offset_right = -92.0
-offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -1061,6 +1058,22 @@ offset_top = 466.0
 offset_right = 984.0
 offset_bottom = 526.0
 text = "LAUNCH"
+
+[node name="Subtitle" type="Label" parent="LaunchUI/Root"]
+visible = false
+layout_mode = 0
+offset_left = 322.0
+offset_top = 480.0
+offset_right = 702.0
+offset_bottom = 526.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.96, 0.88, 1)
+theme_override_colors/font_outline_color = Color(0.12, 0.08, 0.04, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+text = "BOUNCE BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PauseUI" type="CanvasLayer" parent="."]
 script = ExtResource("32_pauseui")
@@ -1132,6 +1145,74 @@ offset_bottom = 164.0
 text = "RESUME"
 
 [node name="ExitButton" type="Button" parent="PauseUI/Root/Overlay/Panel"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 180.0
+offset_right = 380.0
+offset_bottom = 240.0
+text = "EXIT"
+
+[node name="DeathUI" type="CanvasLayer" parent="."]
+script = ExtResource("33_deathui")
+
+[node name="Root" type="Control" parent="DeathUI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("31_theme")
+
+[node name="Overlay" type="Control" parent="DeathUI/Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="DeathUI/Root/Overlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="Panel" type="Panel" parent="DeathUI/Root/Overlay"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 148.0
+offset_right = 752.0
+offset_bottom = 428.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pause")
+
+[node name="DeathTitle" type="Label" parent="DeathUI/Root/Overlay/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 456.0
+offset_bottom = 80.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.95, 0.5, 0.4, 1)
+theme_override_font_sizes/font_size = 42
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RespawnButton" type="Button" parent="DeathUI/Root/Overlay/Panel"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 104.0
+offset_right = 380.0
+offset_bottom = 164.0
+text = "RESPAWN"
+
+[node name="ExitButton" type="Button" parent="DeathUI/Root/Overlay/Panel"]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 180.0

@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal died
+signal landed
+
 @export var gravity := 2300.0
 @export var charge_accel := 3500.0
 @export var max_fall := 1800.0
@@ -22,6 +25,8 @@ var _spin_dir := 1
 var _held := false
 var _hold_on_respawn := false
 var _launching := false
+var _dead := false
+var revived_count := 0
 
 
 func _ready() -> void:
@@ -34,6 +39,23 @@ func is_held() -> bool:
 
 func is_launching() -> bool:
 	return _launching
+
+
+func die() -> void:
+	if _dead:
+		return
+	if died.get_connections().is_empty():
+		respawn()
+		return
+	_dead = true
+	velocity = Vector2.ZERO
+	died.emit()
+
+
+func revive() -> void:
+	_dead = false
+	revived_count += 1
+	respawn()
 
 
 func hold(point: Vector2) -> void:
@@ -71,7 +93,7 @@ func respawn() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if _held:
+	if _dead or _held:
 		return
 
 	if _launching:
@@ -81,6 +103,7 @@ func _physics_process(delta: float) -> void:
 		if is_on_floor():
 			_launching = false
 			velocity = Vector2.ZERO
+			landed.emit()
 		return
 
 	var charging := Input.is_action_pressed("charge_down")

@@ -7,4 +7,4 @@ extends Node2D
 
 func _physics_process(_delta: float) -> void:
 	if player.position.y > kill_y:
-		player.respawn()
+		player.die()

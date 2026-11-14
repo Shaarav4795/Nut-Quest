@@ -68,7 +68,9 @@ func _ground_ahead() -> bool:
 
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if body.has_method("respawn"):
+	if body.has_method("die"):
+		body.die()
+	elif body.has_method("respawn"):
 		body.respawn()
 
 

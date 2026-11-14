@@ -4,6 +4,7 @@ extends CanvasLayer
 @export var zoom_time := 0.45
 
 @onready var button: Button = $Root/LaunchButton
+@onready var subtitle: Label = $Root/Subtitle
 
 var player: CharacterBody2D
 var slingshot: Node2D
@@ -12,6 +13,7 @@ var camera: Camera2D
 var play_zoom := Vector2.ONE
 
 var _holding := false
+var _pending_subtitle := false
 var _zoom_tween: Tween
 
 
@@ -23,6 +25,7 @@ func _ready() -> void:
 
 	if player != null:
 		camera = player.get_node_or_null("Camera") as Camera2D
+		player.landed.connect(_on_player_landed)
 	if camera != null:
 		play_zoom = camera.zoom
 
@@ -61,6 +64,22 @@ func _on_launch_pressed() -> void:
 	if player == null or slingshot == null or target == null:
 		return
 
+	_pending_subtitle = player.revived_count > 0
 	player.launch_to(target.global_position, slingshot.flight_time)
 	slingshot.recoil(target.global_position - slingshot.muzzle_position())
 	_refresh()
+
+
+func _on_player_landed() -> void:
+	if not _pending_subtitle:
+		return
+
+	_pending_subtitle = false
+	subtitle.visible = true
+	subtitle.modulate.a = 0.0
+
+	var tween := create_tween()
+	tween.tween_property(subtitle, "modulate:a", 1.0, 0.25)
+	tween.tween_interval(1.5)
+	tween.tween_property(subtitle, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(subtitle.hide)

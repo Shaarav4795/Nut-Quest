@@ -28,6 +28,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _open() -> void:
+	if get_tree().paused:
+		return
 	overlay.show()
 	get_tree().paused = true
 	resume_button.grab_focus()
