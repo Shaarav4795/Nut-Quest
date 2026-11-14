@@ -16,18 +16,27 @@
 [ext_resource type="Texture2D" uid="uid://c22canvdmr2wu" path="res://assets/Sprites/Tiles/Default/terrain_grass_cloud_left.png" id="14_m3417"]
 [ext_resource type="PackedScene" uid="uid://bysgmt4uxtwbx" path="res://scenes/player/player.tscn" id="15_player"]
 [ext_resource type="Texture2D" uid="uid://bjspbf66qedtt" path="res://assets/squirrel/poison_ivy.png" id="16_q27gu"]
+[ext_resource type="Texture2D" uid="uid://botxwdbhb2dnv" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_center.png" id="17_8uvjh"]
+[ext_resource type="Texture2D" uid="uid://doopeatblmvvm" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_right.png" id="18_4n8ks"]
+[ext_resource type="Texture2D" uid="uid://b62abek3k2yfb" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_left.png" id="19_ox3e1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(447, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qf4sw"]
-size = Vector2(64, 50)
+size = Vector2(639, 54)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_block"]
 size = Vector2(192, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tile"]
 size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b80s"]
+size = Vector2(317, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oprr4"]
+size = Vector2(512, 191.5)
 
 [node name="level_1" type="Node2D" unique_id=1230994277]
 position = Vector2(54, 427)
@@ -41,11 +50,11 @@ position = Vector2(169.5, 85)
 shape = SubResource("RectangleShape2D_ground")
 
 [node name="CollisionBox2" type="CollisionShape2D" parent="Terrain/Ground" unique_id=1309648003]
-position = Vector2(589, 59)
+position = Vector2(603.5, -650)
 shape = SubResource("RectangleShape2D_qf4sw")
 
 [node name="BlockCollision" type="CollisionShape2D" parent="Terrain/Ground" unique_id=1775000011]
-position = Vector2(1083, -196)
+position = Vector2(1113, -200)
 shape = SubResource("RectangleShape2D_block")
 
 [node name="TileCollision" type="CollisionShape2D" parent="Terrain/Ground" unique_id=1775000012]
@@ -111,34 +120,40 @@ texture = ExtResource("2_jyww5")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Terrain/Ground" unique_id=1844326041]
 polygon = PackedVector2Array(733, -105, 733, -68, 740, -56, 752, -46, 775, -41, 883, -41, 897, -42, 915, -53, 925, -67, 925, -105)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Terrain" unique_id=556906949]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Ground" unique_id=1215678587]
+position = Vector2(202.5, -492.5)
+shape = SubResource("RectangleShape2D_0b80s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Terrain/Ground" unique_id=489392851]
+position = Vector2(-313, -684.25)
+shape = SubResource("RectangleShape2D_oprr4")
 
 [node name="TerrainGrassCloud" type="Sprite2D" parent="." unique_id=1259748542]
 position = Vector2(589, 66)
 texture = ExtResource("7_q27gu")
 
 [node name="TerrainGrassBlockTopLeft" type="Sprite2D" parent="." unique_id=919706149]
-position = Vector2(1019, -228)
+position = Vector2(1049, -232)
 texture = ExtResource("1_wdc5c")
 
 [node name="TerrainGrassBlockBottom" type="Sprite2D" parent="." unique_id=1720325705]
-position = Vector2(1083, -164)
+position = Vector2(1113, -168)
 texture = ExtResource("6_g6sy5")
 
 [node name="TerrainGrassBlockBottomLeft" type="Sprite2D" parent="." unique_id=807461975]
-position = Vector2(1019, -164)
+position = Vector2(1049, -168)
 texture = ExtResource("5_vigbq")
 
 [node name="TerrainGrassBlockBottomRight" type="Sprite2D" parent="." unique_id=1516989842]
-position = Vector2(1147, -164)
+position = Vector2(1177, -168)
 texture = ExtResource("4_lkxmd")
 
 [node name="TerrainGrassBlockTop" type="Sprite2D" parent="." unique_id=1523801663]
-position = Vector2(1083, -228)
+position = Vector2(1113, -232)
 texture = ExtResource("2_jyww5")
 
 [node name="TerrainGrassBlockTopRight" type="Sprite2D" parent="." unique_id=110967984]
-position = Vector2(1147, -228)
+position = Vector2(1177, -232)
 texture = ExtResource("3_ewor0")
 
 [node name="TerrainGrassHorizontalOverhangLeft" type="Sprite2D" parent="." unique_id=391227922]
@@ -173,12 +188,20 @@ texture = ExtResource("12_g6sy5")
 position = Vector2(828, -645)
 texture = ExtResource("13_q27gu")
 
+[node name="TerrainGrassCloudMiddle3" type="Sprite2D" parent="." unique_id=931515796]
+position = Vector2(700, -645)
+texture = ExtResource("13_q27gu")
+
+[node name="TerrainGrassCloudMiddle4" type="Sprite2D" parent="." unique_id=1767797725]
+position = Vector2(636, -645)
+texture = ExtResource("13_q27gu")
+
 [node name="TerrainGrassCloudMiddle2" type="Sprite2D" parent="." unique_id=1442664699]
 position = Vector2(764, -645)
 texture = ExtResource("13_q27gu")
 
 [node name="TerrainGrassCloudLeft" type="Sprite2D" parent="." unique_id=2123242870]
-position = Vector2(700, -645)
+position = Vector2(316, -645)
 texture = ExtResource("14_m3417")
 
 [node name="Player" parent="." unique_id=1775000001 instance=ExtResource("15_player")]
@@ -188,3 +211,149 @@ position = Vector2(170, -80)
 position = Vector2(873, -44)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("16_q27gu")
+
+[node name="PoisonIvy2" type="Sprite2D" parent="." unique_id=440259703]
+position = Vector2(576, 45)
+rotation = 1.5550884
+scale = Vector2(0.16223091, 0.16765684)
+texture = ExtResource("16_q27gu")
+
+[node name="TerrainGrassCloudMiddle5" type="Sprite2D" parent="." unique_id=804361191]
+position = Vector2(380, -645)
+texture = ExtResource("13_q27gu")
+
+[node name="TerrainGrassCloudMiddle6" type="Sprite2D" parent="." unique_id=30365507]
+position = Vector2(508, -645)
+texture = ExtResource("13_q27gu")
+
+[node name="TerrainGrassCloudMiddle7" type="Sprite2D" parent="." unique_id=1838729674]
+position = Vector2(572, -645)
+texture = ExtResource("13_q27gu")
+
+[node name="TerrainGrassCloudMiddle8" type="Sprite2D" parent="." unique_id=1621565045]
+position = Vector2(444, -645)
+texture = ExtResource("13_q27gu")
+
+[node name="TerrainGrassHorizontalMiddle2" type="Sprite2D" parent="." unique_id=710181367]
+position = Vector2(137, -492)
+texture = ExtResource("9_0alxl")
+
+[node name="TerrainGrassHorizontalMiddle3" type="Sprite2D" parent="." unique_id=2099272465]
+position = Vector2(201, -492)
+texture = ExtResource("9_0alxl")
+
+[node name="TerrainGrassHorizontalMiddle4" type="Sprite2D" parent="." unique_id=1478767758]
+position = Vector2(265, -492)
+texture = ExtResource("9_0alxl")
+
+[node name="TerrainGrassHorizontalOverhangLeft2" type="Sprite2D" parent="." unique_id=238357466]
+position = Vector2(76, -492)
+texture = ExtResource("8_m3417")
+
+[node name="TerrainGrassHorizontalOverhangRight2" type="Sprite2D" parent="." unique_id=1813064356]
+position = Vector2(329, -492)
+texture = ExtResource("10_8uvjh")
+
+[node name="TerrainGrassBlockBottom3" type="Sprite2D" parent="." unique_id=117848112]
+position = Vector2(1113, -168)
+texture = ExtResource("6_g6sy5")
+
+[node name="TerrainGrassBlockTop2" type="Sprite2D" parent="." unique_id=2050510924]
+position = Vector2(1113, -232)
+texture = ExtResource("2_jyww5")
+
+[node name="TerrainGrassBlockBottom4" type="Sprite2D" parent="." unique_id=1402978041]
+position = Vector2(-153, -621)
+texture = ExtResource("6_g6sy5")
+
+[node name="TerrainGrassBlockCenter4" type="Sprite2D" parent="." unique_id=740585418]
+position = Vector2(-153, -683)
+texture = ExtResource("17_8uvjh")
+
+[node name="TerrainGrassBlockTop3" type="Sprite2D" parent="." unique_id=1386293163]
+position = Vector2(-153, -747)
+texture = ExtResource("2_jyww5")
+
+[node name="TerrainGrassBlockTopRight2" type="Sprite2D" parent="." unique_id=1614962984]
+position = Vector2(-89, -747)
+texture = ExtResource("3_ewor0")
+
+[node name="TerrainGrassBlockRight" type="Sprite2D" parent="." unique_id=1505804675]
+position = Vector2(-89, -683)
+texture = ExtResource("18_4n8ks")
+
+[node name="TerrainGrassBlockBottomRight2" type="Sprite2D" parent="." unique_id=672595100]
+position = Vector2(-89, -621)
+texture = ExtResource("4_lkxmd")
+
+[node name="TerrainGrassBlockBottom5" type="Sprite2D" parent="." unique_id=1318437449]
+position = Vector2(-217, -621)
+texture = ExtResource("6_g6sy5")
+
+[node name="TerrainGrassBlockCenter8" type="Sprite2D" parent="." unique_id=1064775400]
+position = Vector2(-217, -683)
+texture = ExtResource("17_8uvjh")
+
+[node name="TerrainGrassBlockTop4" type="Sprite2D" parent="." unique_id=1691928354]
+position = Vector2(-217, -747)
+texture = ExtResource("2_jyww5")
+
+[node name="TerrainGrassBlockBottom6" type="Sprite2D" parent="." unique_id=1619129361]
+position = Vector2(-281, -621)
+texture = ExtResource("6_g6sy5")
+
+[node name="TerrainGrassBlockCenter12" type="Sprite2D" parent="." unique_id=901723062]
+position = Vector2(-281, -683)
+texture = ExtResource("17_8uvjh")
+
+[node name="TerrainGrassBlockTop5" type="Sprite2D" parent="." unique_id=1888944474]
+position = Vector2(-281, -747)
+texture = ExtResource("2_jyww5")
+
+[node name="TerrainGrassBlockBottom7" type="Sprite2D" parent="." unique_id=666694335]
+position = Vector2(-345, -621)
+texture = ExtResource("6_g6sy5")
+
+[node name="TerrainGrassBlockCenter16" type="Sprite2D" parent="." unique_id=1768529182]
+position = Vector2(-345, -683)
+texture = ExtResource("17_8uvjh")
+
+[node name="TerrainGrassBlockTop6" type="Sprite2D" parent="." unique_id=1077391065]
+position = Vector2(-345, -747)
+texture = ExtResource("2_jyww5")
+
+[node name="TerrainGrassBlockBottom8" type="Sprite2D" parent="." unique_id=856140040]
+position = Vector2(-409, -621)
+texture = ExtResource("6_g6sy5")
+
+[node name="TerrainGrassBlockCenter20" type="Sprite2D" parent="." unique_id=429878447]
+position = Vector2(-409, -683)
+texture = ExtResource("17_8uvjh")
+
+[node name="TerrainGrassBlockTop7" type="Sprite2D" parent="." unique_id=812009359]
+position = Vector2(-409, -747)
+texture = ExtResource("2_jyww5")
+
+[node name="TerrainGrassBlockBottom9" type="Sprite2D" parent="." unique_id=1373173973]
+position = Vector2(-473, -621)
+texture = ExtResource("6_g6sy5")
+
+[node name="TerrainGrassBlockCenter24" type="Sprite2D" parent="." unique_id=860962803]
+position = Vector2(-473, -683)
+texture = ExtResource("17_8uvjh")
+
+[node name="TerrainGrassBlockTop8" type="Sprite2D" parent="." unique_id=403996695]
+position = Vector2(-473, -747)
+texture = ExtResource("2_jyww5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=613145498]
+position = Vector2(-537, -747)
+texture = ExtResource("1_wdc5c")
+
+[node name="TerrainGrassBlockBottomLeft2" type="Sprite2D" parent="." unique_id=1032719629]
+position = Vector2(-537, -621)
+texture = ExtResource("5_vigbq")
+
+[node name="TerrainGrassBlockLeft" type="Sprite2D" parent="." unique_id=2067616261]
+position = Vector2(-537, -683)
+texture = ExtResource("19_ox3e1")
