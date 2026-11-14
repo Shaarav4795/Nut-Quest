@@ -205,7 +205,7 @@ position = Vector2(316, -645)
 texture = ExtResource("14_m3417")
 
 [node name="Player" parent="." unique_id=1775000001 instance=ExtResource("15_player")]
-position = Vector2(170, -80)
+position = Vector2(170, -162)
 
 [node name="PoisonIvy" type="Sprite2D" parent="." unique_id=1573595330]
 position = Vector2(873, -44)

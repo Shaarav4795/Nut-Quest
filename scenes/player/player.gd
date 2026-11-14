@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
-@export var gravity := 1900.0
-@export var charge_accel := 3200.0
+@export var gravity := 2300.0
+@export var charge_accel := 3500.0
 @export var max_fall := 1800.0
 @export var idle_fall_cap := 900.0
 
 @export var bounce_boost := 1.18
-@export var bounce_natural := 1.0
-@export var min_bounce := 260.0
-@export var max_bounce := 1600.0
+@export var bounce_natural := 0.94
+@export var min_bounce := 390.0
+@export var max_bounce := 1300.0
 
 @export var air_steer := 900.0
 @export var max_side := 420.0
