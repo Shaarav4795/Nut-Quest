@@ -157,11 +157,14 @@ offset_top = 96.0
 offset_right = 568.0
 offset_bottom = 300.0
 theme_override_font_sizes/font_size = 20
-text = "Made with love by Shaarav, Kian, and Darsh
+text = "Made with love by Shaarav,
+Kian, and Darsh
 
-Thanks to Kenney for game assets
+Thanks to Kenney for game 
+assets and SFX
 
-Thanks to Fesliyan Studios for music"
+Thanks to Fesliyan Studios
+for the music"
 
 [node name="CloseButton" type="Button" parent="CreditsOverlay/Panel" unique_id=566799047]
 layout_mode = 0

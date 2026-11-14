@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://7ixrrd7etfjw"]
 
-[ext_resource type="Script" uid="uid://1giq0ktskn53" path="res://scenes/level/level_1.gd" id="1_olix3"]
+[ext_resource type="Script" uid="uid://yxpugko61nsn" path="res://scenes/level/level_2.gd" id="1_olix3"]
 [ext_resource type="Texture2D" uid="uid://b2r744bep8lby" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_top_left.png" id="2_2evwt"]
+[ext_resource type="Texture2D" uid="uid://db8j5o3al5jp2" path="res://assets/Sprites/Backgrounds/Default/background_solid_sky.png" id="2_mn0t2"]
 [ext_resource type="Texture2D" uid="uid://pv0li47wentx" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_top.png" id="3_2i55h"]
+[ext_resource type="Texture2D" uid="uid://dyuo5vep05da1" path="res://assets/Sprites/Backgrounds/Default/background_clouds.png" id="3_j32cb"]
+[ext_resource type="Texture2D" uid="uid://drk114v4crrqs" path="res://assets/Sprites/Backgrounds/Default/background_fade_trees.png" id="4_entua"]
 [ext_resource type="Texture2D" uid="uid://b3dmgtfi4pm35" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_top_right.png" id="4_sonjn"]
 [ext_resource type="Texture2D" uid="uid://elry8618d3d3" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_bottom_right.png" id="5_wi0ma"]
 [ext_resource type="Texture2D" uid="uid://cfap2jjnmhpbw" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_bottom_left.png" id="6_fje6m"]
@@ -60,11 +63,61 @@ size = Vector2(64, 183)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyu71"]
 size = Vector2(128, 64)
 
-[node name="level_1" type="Node2D" unique_id=1230994277]
+[node name="level_2" type="Node2D" unique_id=1230994277]
 position = Vector2(74, -2671)
 script = ExtResource("1_olix3")
 
 [node name="Terrain" type="Node2D" parent="." unique_id=704895295]
+
+[node name="BackgroundSolidSky" type="Sprite2D" parent="Terrain" unique_id=861314496]
+position = Vector2(581.74963, -659)
+scale = Vector2(29.705074, 14.1015625)
+texture = ExtResource("2_mn0t2")
+
+[node name="BackgroundClouds" type="Sprite2D" parent="Terrain" unique_id=1864225353]
+position = Vector2(-2586.0002, -2011)
+scale = Vector2(4.9497085, 3.1806638)
+texture = ExtResource("3_j32cb")
+
+[node name="BackgroundClouds2" type="Sprite2D" parent="Terrain" unique_id=2012541734]
+position = Vector2(-1319.0002, -2011)
+scale = Vector2(4.9497085, 3.1806638)
+texture = ExtResource("3_j32cb")
+
+[node name="BackgroundClouds3" type="Sprite2D" parent="Terrain" unique_id=589314859]
+position = Vector2(-52.00049, -2011)
+scale = Vector2(4.9497085, 3.1806638)
+texture = ExtResource("3_j32cb")
+
+[node name="BackgroundClouds4" type="Sprite2D" parent="Terrain" unique_id=1984365714]
+position = Vector2(1214.9998, -2011)
+scale = Vector2(4.9497085, 3.1806638)
+texture = ExtResource("3_j32cb")
+
+[node name="BackgroundClouds5" type="Sprite2D" parent="Terrain" unique_id=247663599]
+position = Vector2(2481.9988, -2011)
+scale = Vector2(4.9497085, 3.1806638)
+texture = ExtResource("3_j32cb")
+
+[node name="BackgroundClouds6" type="Sprite2D" parent="Terrain" unique_id=221067176]
+position = Vector2(3749, -2011)
+scale = Vector2(4.9497085, 3.1806638)
+texture = ExtResource("3_j32cb")
+
+[node name="BackgroundTREES" type="Sprite2D" parent="Terrain" unique_id=1910681625]
+position = Vector2(-1408.2813, -228.99988)
+scale = Vector2(7.11, 5.371)
+texture = ExtResource("4_entua")
+
+[node name="BackgroundTREES2" type="Sprite2D" parent="Terrain" unique_id=1842893212]
+position = Vector2(2169, -229.5)
+scale = Vector2(7.11, 5.369)
+texture = ExtResource("4_entua")
+
+[node name="BackgroundTREES3" type="Sprite2D" parent="Terrain" unique_id=365374757]
+position = Vector2(5806.9995, -229)
+scale = Vector2(7.11, 5.369)
+texture = ExtResource("4_entua")
 
 [node name="Ground" type="StaticBody2D" parent="Terrain" unique_id=1039308314]
 
@@ -237,7 +290,7 @@ position = Vector2(2598, -887)
 texture = ExtResource("15_j3d2j")
 
 [node name="Player" parent="Terrain/Ground" unique_id=1775000001 instance=ExtResource("16_j44rl")]
-position = Vector2(170, -75)
+position = Vector2(-379, -489)
 
 [node name="PoisonIvy" type="Sprite2D" parent="Terrain/Ground" unique_id=1573595330]
 position = Vector2(3603.6, 24.199951)

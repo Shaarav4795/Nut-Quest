@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var kill_y := 300.0
+@export var kill_y := 180.0
 
 @onready var player: CharacterBody2D = find_child("Player", true, false) as CharacterBody2D
 

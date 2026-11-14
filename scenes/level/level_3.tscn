@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxrhivcct4xur"]
 
-[ext_resource type="Script" uid="uid://1giq0ktskn53" path="res://scenes/level/level_1.gd" id="1_62eb7"]
+[ext_resource type="Script" path="res://scenes/level/level_3.gd" id="1_62eb7"]
 [ext_resource type="Texture2D" uid="uid://b2r744bep8lby" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_top_left.png" id="2_q0p76"]
 [ext_resource type="Texture2D" uid="uid://pv0li47wentx" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_top.png" id="3_rnty5"]
 [ext_resource type="Texture2D" uid="uid://b3dmgtfi4pm35" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_top_right.png" id="4_q5iha"]
