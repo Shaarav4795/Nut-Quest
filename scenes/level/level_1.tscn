@@ -38,7 +38,7 @@
 size = Vector2(447, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qf4sw"]
-size = Vector2(639, 54)
+size = Vector2(639, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_block"]
 size = Vector2(192, 128)
@@ -1004,13 +1004,42 @@ texture = ExtResource("6_g6sy5")
 position = Vector2(2457, -1551)
 texture = ExtResource("2_jyww5")
 
-[node name="TerrainGrassBlockTopRight5" type="Sprite2D" parent="Terrain/Ground" unique_id=1230061574]
-position = Vector2(2841, -1551)
-texture = ExtResource("3_ewor0")
-
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Terrain/Ground" unique_id=1317424415]
-position = Vector2(2041.25, -1519.5)
+position = Vector2(2041, -1519)
 shape = SubResource("RectangleShape2D_eyu71")
+
+[node name="TerrainGrassBlockRight3" type="Sprite2D" parent="Terrain/Ground" unique_id=364400698]
+position = Vector2(2841, -1552)
+texture = ExtResource("18_4n8ks")
+
+[node name="CollisionBox4" type="CollisionShape2D" parent="Terrain/Ground" unique_id=711319043]
+position = Vector2(2841.5, -1644)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_qf4sw")
+
+[node name="TerrainGrassVerticalMiddle" type="Sprite2D" parent="Terrain" unique_id=1170053232]
+position = Vector2(2841, -1611)
+texture = ExtResource("21_8e0j7")
+
+[node name="TerrainGrassVerticalMiddle2" type="Sprite2D" parent="Terrain" unique_id=1390561175]
+position = Vector2(2841, -1675)
+texture = ExtResource("21_8e0j7")
+
+[node name="TerrainGrassVerticalMiddle3" type="Sprite2D" parent="Terrain" unique_id=875215850]
+position = Vector2(2841, -1739)
+texture = ExtResource("21_8e0j7")
+
+[node name="TerrainGrassVerticalMiddle4" type="Sprite2D" parent="Terrain" unique_id=465318412]
+position = Vector2(2841, -1803)
+texture = ExtResource("21_8e0j7")
+
+[node name="TerrainGrassVerticalMiddle5" type="Sprite2D" parent="Terrain" unique_id=1820444212]
+position = Vector2(2841, -1867)
+texture = ExtResource("21_8e0j7")
+
+[node name="TerrainGrassVerticalTop" type="Sprite2D" parent="Terrain" unique_id=1783714499]
+position = Vector2(2841, -1931)
+texture = ExtResource("22_13hc6")
 
 [node name="Echidna" parent="." unique_id=1982091274 instance=ExtResource("23_echidna")]
 position = Vector2(403, -680)
