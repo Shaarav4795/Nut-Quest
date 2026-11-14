@@ -14,6 +14,7 @@ var _index := 0
 
 
 func _ready() -> void:
+	Audio.play_menu_music()
 	_refresh()
 	play_button.grab_focus()
 

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal died
 signal landed
+signal bounced
 
 @export var gravity := 2300.0
 @export var charge_accel := 3500.0
@@ -26,6 +27,7 @@ var _held := false
 var _hold_on_respawn := false
 var _launching := false
 var _dead := false
+var death_handled := false
 var revived_count := 0
 
 
@@ -44,7 +46,8 @@ func is_launching() -> bool:
 func die() -> void:
 	if _dead:
 		return
-	if died.get_connections().is_empty():
+	if not death_handled:
+		died.emit()
 		respawn()
 		return
 	_dead = true
@@ -123,6 +126,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and impact_speed >= 0.0:
 		var restitution := bounce_boost if charging else bounce_natural
 		velocity.y = -clampf(impact_speed * restitution, min_bounce, max_bounce)
+		bounced.emit()
 
 	if dir != 0.0:
 		_roll(dir, delta)

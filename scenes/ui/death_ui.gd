@@ -15,6 +15,7 @@ func _ready() -> void:
 
 	player = get_parent().find_child("Player", true, false) as CharacterBody2D
 	if player != null:
+		player.death_handled = true
 		player.died.connect(_on_player_died)
 
 	respawn_button.pressed.connect(_respawn)

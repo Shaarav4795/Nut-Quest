@@ -11,6 +11,8 @@ const LEVEL_SELECT := "res://scenes/ui/level_select.tscn"
 
 
 func _ready() -> void:
+	Audio.play_menu_music()
+
 	if ResourceLoader.exists(BACKGROUND_ART):
 		background.texture = load(BACKGROUND_ART)
 	if ResourceLoader.exists(TITLE_ART):

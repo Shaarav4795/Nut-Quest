@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Audio="*res://scenes/audio/audio.gd"
 Progress="*res://scenes/ui/progress.gd"
 
 [display]
