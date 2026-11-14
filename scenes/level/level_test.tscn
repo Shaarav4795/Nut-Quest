@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene format=3 uid="uid://cgqg0efrw3tc"]
 
-[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://bysgmt4uxtwbx" path="res://scenes/player/player.tscn" id="1_player"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(1024, 64)
@@ -11,53 +11,53 @@ size = Vector2(256, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_small"]
 size = Vector2(192, 64)
 
-[node name="Level_Test" type="Node2D"]
+[node name="Level_Test" type="Node2D" unique_id=852662916]
 
-[node name="Terrain" type="Node2D" parent="."]
+[node name="Terrain" type="Node2D" parent="." unique_id=1568402747]
 
-[node name="Ground" type="StaticBody2D" parent="Terrain"]
+[node name="Ground" type="StaticBody2D" parent="Terrain" unique_id=402807513]
 position = Vector2(512, 540)
 collision_mask = 0
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Terrain/Ground"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Terrain/Ground" unique_id=1436053321]
 shape = SubResource("RectangleShape2D_ground")
 
-[node name="Visual" type="Polygon2D" parent="Terrain/Ground"]
+[node name="Visual" type="Polygon2D" parent="Terrain/Ground" unique_id=888774443]
 color = Color(0.29, 0.45, 0.25, 1)
 polygon = PackedVector2Array(-512, -32, 512, -32, 512, 32, -512, 32)
 
-[node name="Ledge_A" type="StaticBody2D" parent="Terrain"]
+[node name="Ledge_A" type="StaticBody2D" parent="Terrain" unique_id=399418818]
 position = Vector2(300, 380)
 collision_mask = 0
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Terrain/Ledge_A"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Terrain/Ledge_A" unique_id=120053106]
 shape = SubResource("RectangleShape2D_wide")
 
-[node name="Visual" type="Polygon2D" parent="Terrain/Ledge_A"]
+[node name="Visual" type="Polygon2D" parent="Terrain/Ledge_A" unique_id=57463370]
 color = Color(0.42, 0.36, 0.3, 1)
 polygon = PackedVector2Array(-128, -32, 128, -32, 128, 32, -128, 32)
 
-[node name="Ledge_B" type="StaticBody2D" parent="Terrain"]
+[node name="Ledge_B" type="StaticBody2D" parent="Terrain" unique_id=1396783272]
 position = Vector2(700, 260)
 collision_mask = 0
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Terrain/Ledge_B"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Terrain/Ledge_B" unique_id=1407114598]
 shape = SubResource("RectangleShape2D_wide")
 
-[node name="Visual" type="Polygon2D" parent="Terrain/Ledge_B"]
+[node name="Visual" type="Polygon2D" parent="Terrain/Ledge_B" unique_id=1631947113]
 color = Color(0.38, 0.32, 0.27, 1)
 polygon = PackedVector2Array(-128, -32, 128, -32, 128, 32, -128, 32)
 
-[node name="Ledge_C" type="StaticBody2D" parent="Terrain"]
+[node name="Ledge_C" type="StaticBody2D" parent="Terrain" unique_id=1312678318]
 position = Vector2(420, 140)
 collision_mask = 0
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Terrain/Ledge_C"]
+[node name="CollisionShape" type="CollisionShape2D" parent="Terrain/Ledge_C" unique_id=769141111]
 shape = SubResource("RectangleShape2D_small")
 
-[node name="Visual" type="Polygon2D" parent="Terrain/Ledge_C"]
+[node name="Visual" type="Polygon2D" parent="Terrain/Ledge_C" unique_id=1019012688]
 color = Color(0.34, 0.29, 0.24, 1)
 polygon = PackedVector2Array(-96, -32, 96, -32, 96, 32, -96, 32)
 
-[node name="Player" parent="." instance=ExtResource("1_player")]
+[node name="Player" parent="." unique_id=649747681 instance=ExtResource("1_player")]
 position = Vector2(512, 300)
