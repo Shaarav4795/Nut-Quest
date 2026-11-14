@@ -14,9 +14,20 @@
 [ext_resource type="Texture2D" uid="uid://ewn8hx5yl7d5" path="res://assets/Sprites/Tiles/Default/terrain_grass_cloud_right.png" id="12_g6sy5"]
 [ext_resource type="Texture2D" uid="uid://bcxxwvv7dqn4i" path="res://assets/Sprites/Tiles/Default/terrain_grass_cloud_middle.png" id="13_q27gu"]
 [ext_resource type="Texture2D" uid="uid://c22canvdmr2wu" path="res://assets/Sprites/Tiles/Default/terrain_grass_cloud_left.png" id="14_m3417"]
+[ext_resource type="PackedScene" uid="uid://bysgmt4uxtwbx" path="res://scenes/player/player.tscn" id="15_player"]
+[ext_resource type="Texture2D" uid="uid://bjspbf66qedtt" path="res://assets/squirrel/poison_ivy.png" id="16_q27gu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
+size = Vector2(447, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qf4sw"]
 size = Vector2(64, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_block"]
+size = Vector2(192, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tile"]
+size = Vector2(64, 64)
 
 [node name="level_1" type="Node2D" unique_id=1230994277]
 position = Vector2(54, 427)
@@ -25,13 +36,25 @@ position = Vector2(54, 427)
 
 [node name="Ground" type="StaticBody2D" parent="Terrain" unique_id=1039308314]
 
-[node name="CollisionBox" type="CollisionShape2D" parent="Terrain/Ground" unique_id=1137264683]
-position = Vector2(170, 85)
-shape = SubResource("RectangleShape2D_qf4sw")
+[node name="GroundCollision" type="CollisionShape2D" parent="Terrain/Ground" unique_id=1137264683]
+position = Vector2(169.5, 85)
+shape = SubResource("RectangleShape2D_ground")
 
 [node name="CollisionBox2" type="CollisionShape2D" parent="Terrain/Ground" unique_id=1309648003]
 position = Vector2(589, 59)
 shape = SubResource("RectangleShape2D_qf4sw")
+
+[node name="BlockCollision" type="CollisionShape2D" parent="Terrain/Ground" unique_id=1775000011]
+position = Vector2(1083, -196)
+shape = SubResource("RectangleShape2D_block")
+
+[node name="TileCollision" type="CollisionShape2D" parent="Terrain/Ground" unique_id=1775000012]
+position = Vector2(1248, -426)
+shape = SubResource("RectangleShape2D_tile")
+
+[node name="TileCollision2" type="CollisionShape2D" parent="Terrain/Ground" unique_id=1775000013]
+position = Vector2(1110, -609)
+shape = SubResource("RectangleShape2D_tile")
 
 [node name="Sprite2D" type="Sprite2D" parent="Terrain/Ground" unique_id=454771145]
 position = Vector2(-22, 53)
@@ -157,3 +180,11 @@ texture = ExtResource("13_q27gu")
 [node name="TerrainGrassCloudLeft" type="Sprite2D" parent="." unique_id=2123242870]
 position = Vector2(700, -645)
 texture = ExtResource("14_m3417")
+
+[node name="Player" parent="." unique_id=1775000001 instance=ExtResource("15_player")]
+position = Vector2(170, -80)
+
+[node name="PoisonIvy" type="Sprite2D" parent="." unique_id=1573595330]
+position = Vector2(873, -44)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("16_q27gu")
