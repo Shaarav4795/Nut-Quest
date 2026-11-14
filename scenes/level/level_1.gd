@@ -5,7 +5,9 @@ extends Node2D
 # only passes this by falling off the level.
 @export var kill_y := 300.0
 
-@onready var player: CharacterBody2D = $Player
+# The player has been re-parented more than once (it currently lives under
+# Terrain/Ground), so find it by name rather than hard-coding a path.
+@onready var player: CharacterBody2D = find_child("Player", true, false) as CharacterBody2D
 
 
 func _physics_process(_delta: float) -> void:
