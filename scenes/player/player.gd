@@ -17,7 +17,20 @@ extends CharacterBody2D
 
 @onready var sprite: Sprite2D = $Sprite
 
+var _spawn_point := Vector2.ZERO
+
 var _spin_dir := 1
+
+
+func _ready() -> void:
+	_spawn_point = position
+
+
+func respawn() -> void:
+	position = _spawn_point
+	velocity = Vector2.ZERO
+	_spin_dir = 1
+	sprite.rotation = 0.0
 
 
 func _physics_process(delta: float) -> void:

@@ -20,6 +20,8 @@ extends CharacterBody2D
 @export var stand_texture: Texture2D = preload("res://assets/squirrel/echidna_stand.png")
 
 @onready var sprite: Sprite2D = $Sprite
+@onready var ledge_check: RayCast2D = $LedgeCheck
+@onready var hurtbox: Area2D = $Hurtbox
 
 enum State { IDLE, WALK }
 
@@ -31,6 +33,7 @@ var _home_x := 0.0
 
 func _ready() -> void:
 	_home_x = global_position.x
+	hurtbox.body_entered.connect(_on_hurtbox_body_entered)
 	_enter(State.IDLE)
 
 
@@ -47,14 +50,26 @@ func _physics_process(delta: float) -> void:
 			_dir = -_dir
 		if is_on_wall():
 			_dir = -_dir
+		if not _ground_ahead():
+			_dir = -_dir
 		velocity.x = move_toward(velocity.x, _dir * walk_speed, ground_accel * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, ground_accel * delta)
 
 	move_and_slide()
 
-	# The walk art already faces LEFT, so flip only when travelling right.
 	sprite.flip_h = _dir > 0.0
+
+
+func _ground_ahead() -> bool:
+	ledge_check.position.x = _dir * 34.0
+	ledge_check.force_raycast_update()
+	return ledge_check.is_colliding()
+
+
+func _on_hurtbox_body_entered(body: Node2D) -> void:
+	if body.has_method("respawn"):
+		body.respawn()
 
 
 func _enter(next: State) -> void:
