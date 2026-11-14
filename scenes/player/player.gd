@@ -6,8 +6,8 @@ extends CharacterBody2D
 @export var idle_fall_cap := 900.0
 
 @export var bounce_boost := 1.18
-@export var bounce_natural := 0.94
-@export var min_bounce := 390.0
+@export var bounce_natural := 0.87
+@export var min_bounce := 500.0
 @export var max_bounce := 1300.0
 
 @export var air_steer := 900.0
