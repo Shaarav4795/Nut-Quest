@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cgqg0efrw3tc"]
 
 [ext_resource type="PackedScene" uid="uid://bysgmt4uxtwbx" path="res://scenes/player/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" path="res://scenes/objects/echidna.tscn" id="2_echidna"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(1024, 64)
@@ -61,3 +62,13 @@ polygon = PackedVector2Array(-96, -32, 96, -32, 96, 32, -96, 32)
 
 [node name="Player" parent="." unique_id=649747681 instance=ExtResource("1_player")]
 position = Vector2(512, 300)
+
+[node name="Echidna" parent="." unique_id=1774239182 instance=ExtResource("2_echidna")]
+position = Vector2(240, 508)
+patrol_left = -150.0
+patrol_right = 150.0
+
+[node name="Echidna2" parent="." unique_id=1774239183 instance=ExtResource("2_echidna")]
+position = Vector2(780, 508)
+patrol_left = -120.0
+patrol_right = 120.0

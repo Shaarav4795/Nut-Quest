@@ -1,25 +1,56 @@
 extends CharacterBody2D
 
+@export var gravity := 1900.0
+@export var charge_accel := 3200.0
+@export var max_fall := 1800.0
+@export var idle_fall_cap := 900.0
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var bounce_boost := 1.18
+@export var bounce_natural := 1.0
+@export var min_bounce := 260.0
+@export var max_bounce := 1600.0
+
+@export var air_steer := 900.0
+@export var max_side := 420.0
+
+@export var spin_speed := 9.0
+
+@onready var sprite: Sprite2D = $Sprite
+
+var _spin_dir := 1
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	var charging := Input.is_action_pressed("charge_down")
+	var dir := Input.get_axis("move_left", "move_right")
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	if charging:
+		velocity.y = minf(velocity.y + charge_accel * delta, max_fall)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.y = minf(velocity.y + gravity * delta, idle_fall_cap)
+
+	velocity.x = move_toward(velocity.x, dir * max_side, air_steer * delta)
+
+	var impact_speed := velocity.y
 
 	move_and_slide()
+
+	if is_on_floor() and impact_speed >= 0.0:
+		var restitution := bounce_boost if charging else bounce_natural
+		velocity.y = -clampf(impact_speed * restitution, min_bounce, max_bounce)
+
+
+	if dir > 0.0:
+		_spin_dir = 1
+		sprite.rotation += spin_speed * delta
+		sprite.flip_h = false
+	elif dir < 0.0:
+		_spin_dir = -1
+		sprite.rotation -= spin_speed * delta
+		sprite.flip_h = true
+	else:
+		var turns := sprite.rotation / TAU
+		var target := (ceilf(turns) if _spin_dir > 0 else floorf(turns)) * TAU
+		sprite.rotation = move_toward(sprite.rotation, target, spin_speed * delta)
+		if is_equal_approx(sprite.rotation, target):
+			sprite.rotation = 0.0
