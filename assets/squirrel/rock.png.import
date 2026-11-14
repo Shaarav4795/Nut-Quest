@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjc5rf5esmdx2"
-path="res://.godot/imported/squirrel_stand.png-05558eb94d41af50b3e0789f073228a0.ctex"
+uid="uid://c6vj64gljoqgo"
+path="res://.godot/imported/rock.png-7924d93f3cea41b772d3073f4085a952.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/New stuff/squirrel_stand.png"
-dest_files=["res://.godot/imported/squirrel_stand.png-05558eb94d41af50b3e0789f073228a0.ctex"]
+source_file="res://assets/squirrel/rock.png"
+dest_files=["res://.godot/imported/rock.png-7924d93f3cea41b772d3073f4085a952.ctex"]
 
 [params]
 

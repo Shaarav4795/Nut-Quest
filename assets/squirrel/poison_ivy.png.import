@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm8m77208mxig"
-path="res://.godot/imported/rock.png-43d261d9c6fe2db340c146ac04f91a70.ctex"
+uid="uid://bjspbf66qedtt"
+path="res://.godot/imported/poison_ivy.png-09c65ac01775518db5c97bc7ce868294.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/New stuff/rock.png"
-dest_files=["res://.godot/imported/rock.png-43d261d9c6fe2db340c146ac04f91a70.ctex"]
+source_file="res://assets/squirrel/poison_ivy.png"
+dest_files=["res://.godot/imported/poison_ivy.png-09c65ac01775518db5c97bc7ce868294.ctex"]
 
 [params]
 

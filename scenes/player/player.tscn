@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bysgmt4uxtwbx"]
+
+[ext_resource type="Texture2D" uid="uid://dtovjr5ygme6c" path="res://assets/squirrel/squirrel_roll.png" id="2_body"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_body"]
+radius = 44.011364
+
+[node name="Player" type="CharacterBody2D" unique_id=1491211223]
+collision_layer = 2
+floor_stop_on_slope = false
+floor_snap_length = 0.0
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=957771241]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_body")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=65543258]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_body")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=987441384]
+position_smoothing_enabled = true

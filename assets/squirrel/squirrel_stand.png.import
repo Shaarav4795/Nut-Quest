@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3a78l3xkxelg"
-path="res://.godot/imported/slingshot.png-693b823c17628677d08cd41c073e765c.ctex"
+uid="uid://ciqd1llymrxmb"
+path="res://.godot/imported/squirrel_stand.png-02fa26d7cfffe292e687ae7971a71d16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/New stuff/slingshot.png"
-dest_files=["res://.godot/imported/slingshot.png-693b823c17628677d08cd41c073e765c.ctex"]
+source_file="res://assets/squirrel/squirrel_stand.png"
+dest_files=["res://.godot/imported/squirrel_stand.png-02fa26d7cfffe292e687ae7971a71d16.ctex"]
 
 [params]
 
