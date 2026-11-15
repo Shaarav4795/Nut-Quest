@@ -1,37 +1,43 @@
 [gd_scene format=3 uid="uid://7ixrrd7etfjw"]
 
 [ext_resource type="Script" uid="uid://yxpugko61nsn" path="res://scenes/level/level_2.gd" id="1_olix3"]
-[ext_resource type="Texture2D" uid="uid://b2r744bep8lby" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_top_left.png" id="2_2evwt"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_block_top_left.png" id="2_2evwt"]
 [ext_resource type="Texture2D" uid="uid://db8j5o3al5jp2" path="res://assets/Sprites/Backgrounds/Default/background_solid_sky.png" id="2_mn0t2"]
-[ext_resource type="Texture2D" uid="uid://pv0li47wentx" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_top.png" id="3_2i55h"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_block_top.png" id="3_2i55h"]
 [ext_resource type="Texture2D" uid="uid://dyuo5vep05da1" path="res://assets/Sprites/Backgrounds/Default/background_clouds.png" id="3_j32cb"]
 [ext_resource type="Texture2D" uid="uid://drk114v4crrqs" path="res://assets/Sprites/Backgrounds/Default/background_fade_trees.png" id="4_entua"]
-[ext_resource type="Texture2D" uid="uid://b3dmgtfi4pm35" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_top_right.png" id="4_sonjn"]
-[ext_resource type="Texture2D" uid="uid://elry8618d3d3" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_bottom_right.png" id="5_wi0ma"]
-[ext_resource type="Texture2D" uid="uid://cfap2jjnmhpbw" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_bottom_left.png" id="6_fje6m"]
-[ext_resource type="Texture2D" uid="uid://dhxm6jcr53rqp" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_bottom.png" id="7_w7kwj"]
-[ext_resource type="Texture2D" uid="uid://dj4xu3pkn6edx" path="res://assets/Sprites/Tiles/Default/terrain_grass_cloud.png" id="8_dttnr"]
-[ext_resource type="Texture2D" uid="uid://d064k4surmhgd" path="res://assets/Sprites/Tiles/Default/terrain_grass_horizontal_overhang_left.png" id="9_mn0t2"]
-[ext_resource type="Texture2D" uid="uid://ddpxmkgt104od" path="res://assets/Sprites/Tiles/Default/terrain_grass_horizontal_middle.png" id="10_j32cb"]
-[ext_resource type="Texture2D" uid="uid://cv3ls85lquqqc" path="res://assets/Sprites/Tiles/Default/terrain_grass_horizontal_overhang_right.png" id="11_entua"]
-[ext_resource type="Texture2D" uid="uid://bhywffii7y2s4" path="res://assets/Sprites/Tiles/Default/terrain_grass_block.png" id="12_i28gq"]
-[ext_resource type="Texture2D" uid="uid://ewn8hx5yl7d5" path="res://assets/Sprites/Tiles/Default/terrain_grass_cloud_right.png" id="13_o282h"]
-[ext_resource type="Texture2D" uid="uid://bcxxwvv7dqn4i" path="res://assets/Sprites/Tiles/Default/terrain_grass_cloud_middle.png" id="14_71r6b"]
-[ext_resource type="Texture2D" uid="uid://c22canvdmr2wu" path="res://assets/Sprites/Tiles/Default/terrain_grass_cloud_left.png" id="15_j3d2j"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_block_top_right.png" id="4_sonjn"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_block_bottom_right.png" id="5_wi0ma"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_block_bottom_left.png" id="6_fje6m"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_block_bottom.png" id="7_w7kwj"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_cloud.png" id="8_dttnr"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_horizontal_overhang_left.png" id="9_mn0t2"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_horizontal_middle.png" id="10_j32cb"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_horizontal_overhang_right.png" id="11_entua"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_block.png" id="12_i28gq"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_cloud_right.png" id="13_o282h"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_cloud_middle.png" id="14_71r6b"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_cloud_left.png" id="15_j3d2j"]
 [ext_resource type="PackedScene" uid="uid://bysgmt4uxtwbx" path="res://scenes/player/player.tscn" id="16_j44rl"]
 [ext_resource type="Texture2D" uid="uid://bjspbf66qedtt" path="res://assets/squirrel/poison_ivy.png" id="17_hvpud"]
-[ext_resource type="Texture2D" uid="uid://botxwdbhb2dnv" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_center.png" id="18_gtj4o"]
-[ext_resource type="Texture2D" uid="uid://doopeatblmvvm" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_right.png" id="19_qvmie"]
-[ext_resource type="Texture2D" uid="uid://b62abek3k2yfb" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_left.png" id="20_cm6xo"]
-[ext_resource type="Texture2D" uid="uid://ufwghdd2xi2j" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_bottom.png" id="21_ekwd7"]
-[ext_resource type="Texture2D" uid="uid://dyq5tthm4g0ye" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_middle.png" id="22_6eywg"]
-[ext_resource type="Texture2D" uid="uid://dl0gc8nyfh7fj" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_top.png" id="23_4o285"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_block_center.png" id="18_gtj4o"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_block_right.png" id="19_qvmie"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_block_left.png" id="20_cm6xo"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_vertical_bottom.png" id="21_ekwd7"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_vertical_middle.png" id="22_6eywg"]
+[ext_resource type="Texture2D" path="res://assets/Sprites/Tiles/Default/terrain_dirt_vertical_top.png" id="23_4o285"]
 [ext_resource type="PackedScene" path="res://scenes/objects/echidna.tscn" id="24_mssae"]
-[ext_resource type="Texture2D" uid="uid://cxk4vur24m2qc" path="res://assets/Vector/Tiles/terrain_grass_horizontal_left.svg" id="25_2i55h"]
-[ext_resource type="Texture2D" uid="uid://bp0pk23tesgx5" path="res://assets/Vector/Tiles/terrain_grass_horizontal_middle.svg" id="26_sonjn"]
-[ext_resource type="Texture2D" uid="uid://c7ubk2a1agbc5" path="res://assets/Vector/Tiles/terrain_grass_horizontal_overhang_left.svg" id="27_fje6m"]
-[ext_resource type="Texture2D" uid="uid://b5bc2ebf0mnfa" path="res://assets/Vector/Tiles/terrain_grass_horizontal_overhang_right.svg" id="28_w7kwj"]
-[ext_resource type="Texture2D" uid="uid://xc5nlwqlvefl" path="res://assets/Vector/Tiles/terrain_grass_block.svg" id="29_dttnr"]
+[ext_resource type="Texture2D" path="res://assets/Vector/Tiles/terrain_dirt_horizontal_left.svg" id="25_2i55h"]
+[ext_resource type="Texture2D" path="res://assets/Vector/Tiles/terrain_dirt_horizontal_middle.svg" id="26_sonjn"]
+[ext_resource type="Texture2D" path="res://assets/Vector/Tiles/terrain_dirt_horizontal_overhang_left.svg" id="27_fje6m"]
+[ext_resource type="Texture2D" path="res://assets/Vector/Tiles/terrain_dirt_horizontal_overhang_right.svg" id="28_w7kwj"]
+[ext_resource type="Texture2D" path="res://assets/Vector/Tiles/terrain_dirt_block.svg" id="29_dttnr"]
+[ext_resource type="Script" uid="uid://nxseusgdwfc3" path="res://scenes/objects/slingshot.gd" id="30_sling"]
+[ext_resource type="Script" uid="uid://boobqan3v1w4t" path="res://scenes/ui/launch_ui.gd" id="31_launchui"]
+[ext_resource type="Theme" uid="uid://cyu7dpmmhmns" path="res://scenes/ui/ui_theme.tres" id="32_theme"]
+[ext_resource type="Script" uid="uid://bhxn7lo3af66" path="res://scenes/ui/pause_ui.gd" id="33_pauseui"]
+[ext_resource type="Script" uid="uid://vhs6pe358b6p" path="res://scenes/ui/death_ui.gd" id="34_deathui"]
+[ext_resource type="Texture2D" uid="uid://byjvxw4sw0mr2" path="res://assets/squirrel/slingshot.png" id="35_slingart"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(447, 128)
@@ -65,6 +71,18 @@ size = Vector2(128, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wf3qn"]
 size = Vector2(441.5, 127.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pause"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.68, 0.42, 0.5)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
 
 [node name="level_2" type="Node2D" unique_id=1230994277]
 position = Vector2(74, -2671)
