@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bc7c0popa7fy1"]
+
+[ext_resource type="Script" uid="uid://mybtnlfog06y" path="res://timer.gd" id="1_y3qkn"]
+[ext_resource type="Theme" uid="uid://cyu7dpmmhmns" path="res://scenes/ui/ui_theme.tres" id="2_ujwr8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wlyu"]
+
+[node name="timer" type="CanvasLayer" unique_id=2073159215]
+script = ExtResource("1_y3qkn")
+
+[node name="timer_label" type="Label" parent="." unique_id=1562877665]
+offset_left = 930.0
+offset_top = 534.0
+offset_right = 1010.0
+offset_bottom = 568.0
+theme = ExtResource("2_ujwr8")
+theme_override_font_sizes/font_size = 50
+text = "00:00"
+label_settings = SubResource("LabelSettings_0wlyu")
+horizontal_alignment = 1
+vertical_alignment = 2

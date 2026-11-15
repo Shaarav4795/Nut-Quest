@@ -33,6 +33,7 @@
 [ext_resource type="Theme" uid="uid://cyu7dpmmhmns" path="res://scenes/ui/ui_theme.tres" id="31_theme"]
 [ext_resource type="Script" uid="uid://bhxn7lo3af66" path="res://scenes/ui/pause_ui.gd" id="32_pauseui"]
 [ext_resource type="Script" uid="uid://vhs6pe358b6p" path="res://scenes/ui/death_ui.gd" id="33_deathui"]
+[ext_resource type="PackedScene" uid="uid://bc7c0popa7fy1" path="res://scenes/objects/timer.tscn" id="34_0wlyu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(447, 128)
@@ -1331,3 +1332,5 @@ offset_top = 180.0
 offset_right = 380.0
 offset_bottom = 240.0
 text = "EXIT"
+
+[node name="timer" parent="." unique_id=2073159215 instance=ExtResource("34_0wlyu")]

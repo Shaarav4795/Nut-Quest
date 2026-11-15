@@ -38,6 +38,7 @@
 [ext_resource type="Script" uid="uid://bhxn7lo3af66" path="res://scenes/ui/pause_ui.gd" id="33_pauseui"]
 [ext_resource type="Script" uid="uid://vhs6pe358b6p" path="res://scenes/ui/death_ui.gd" id="34_deathui"]
 [ext_resource type="Texture2D" uid="uid://byjvxw4sw0mr2" path="res://assets/squirrel/slingshot.png" id="35_slingart"]
+[ext_resource type="PackedScene" uid="uid://bc7c0popa7fy1" path="res://scenes/objects/timer.tscn" id="39_j44rl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(447, 128)
@@ -1407,3 +1408,5 @@ texture = ExtResource("14_71r6b")
 [node name="TerrainGrassCloudMiddle16" type="Sprite2D" parent="." unique_id=1492363307]
 position = Vector2(6859, -156)
 texture = ExtResource("14_71r6b")
+
+[node name="timer" parent="." unique_id=2073159215 instance=ExtResource("39_j44rl")]
