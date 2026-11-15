@@ -34,6 +34,12 @@ func _ready() -> void:
 	if _player != null:
 		_player.died.connect(_on_player_died)
 
+	var badge: Label = $Root/CompleteOverlay/Panel/Badge/BadgeLabel
+	if level_index + 2 > Progress.LEVELS.size():
+		badge.text = "WELL DONE"
+	else:
+		badge.text = "LEVEL %d UNLOCKED" % (level_index + 2)
+
 	continue_button.pressed.connect(_continue)
 
 

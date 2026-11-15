@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://cpa3d2n230ll2" path="res://assets/Sprites/Tiles/Default/terrain_dirt_vertical_bottom.png" id="21_ekwd7"]
 [ext_resource type="Texture2D" uid="uid://dvap3f5ickvic" path="res://assets/Sprites/Tiles/Default/terrain_dirt_vertical_middle.png" id="22_6eywg"]
 [ext_resource type="Texture2D" uid="uid://w54g3uuwvrl5" path="res://assets/Sprites/Tiles/Default/terrain_dirt_vertical_top.png" id="23_4o285"]
-[ext_resource type="PackedScene" path="res://scenes/objects/echidna.tscn" id="24_mssae"]
+[ext_resource type="PackedScene" uid="uid://d3r2oljdqjlfr" path="res://scenes/objects/echidna.tscn" id="24_mssae"]
 [ext_resource type="Texture2D" uid="uid://brk7knneavhf2" path="res://assets/Vector/Tiles/terrain_dirt_horizontal_left.svg" id="25_2i55h"]
 [ext_resource type="Texture2D" uid="uid://clyqfhp0i70tv" path="res://assets/Vector/Tiles/terrain_dirt_horizontal_middle.svg" id="26_sonjn"]
 [ext_resource type="Texture2D" uid="uid://b6ks31q1pnhit" path="res://assets/Vector/Tiles/terrain_dirt_horizontal_overhang_left.svg" id="27_fje6m"]
@@ -39,7 +39,9 @@
 [ext_resource type="Script" uid="uid://vhs6pe358b6p" path="res://scenes/ui/death_ui.gd" id="34_deathui"]
 [ext_resource type="Texture2D" uid="uid://byjvxw4sw0mr2" path="res://assets/squirrel/slingshot.png" id="35_slingart"]
 [ext_resource type="PackedScene" uid="uid://bc7c0popa7fy1" path="res://scenes/objects/timer.tscn" id="39_j44rl"]
+[ext_resource type="PackedScene" path="res://scenes/objects/llama.tscn" id="40_hvpud"]
 
+[ext_resource type="PackedScene" path="res://scenes/ui/boss_timer.tscn" id="36_bosstimer"]
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(447, 128)
 
@@ -1278,6 +1280,9 @@ offset_right = 380.0
 offset_bottom = 240.0
 text = "EXIT"
 
+[node name="BossTimer" parent="." instance=ExtResource("36_bosstimer")]
+level_index = 1
+
 [node name="DeathUI" type="CanvasLayer" parent="." unique_id=1900000018]
 script = ExtResource("34_deathui")
 
@@ -1410,3 +1415,8 @@ position = Vector2(6859, -156)
 texture = ExtResource("14_71r6b")
 
 [node name="timer" parent="." unique_id=2073159215 instance=ExtResource("39_j44rl")]
+
+[node name="Llama" parent="." unique_id=1112697451 instance=ExtResource("40_hvpud")]
+position = Vector2(6701, -196)
+patrol_left = -260.0
+patrol_right = 260.0
