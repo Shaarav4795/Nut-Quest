@@ -8,10 +8,10 @@ signal landed
 @export var max_fall := 1800.0
 @export var idle_fall_cap := 900.0
 
-@export var bounce_boost := 1.18
-@export var bounce_natural := 0.94
+@export var bounce_boost := 1.85
+@export var bounce_natural := 0.95
 @export var min_bounce := 390.0
-@export var max_bounce := 1300.0
+@export var max_bounce := 1390.0
 
 @export var air_steer := 900.0
 @export var max_side := 420.0
