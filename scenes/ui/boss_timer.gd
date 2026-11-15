@@ -30,6 +30,8 @@ func _ready() -> void:
 
 	var level: Node = get_parent()
 	_llama = level.find_child("Llama", true, false)
+	if _llama == null:
+		_llama = level.find_child("Owl", true, false)
 	_player = level.find_child("Player", true, false)
 	if _player != null:
 		_player.died.connect(_on_player_died)

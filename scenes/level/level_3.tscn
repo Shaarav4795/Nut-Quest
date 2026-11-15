@@ -35,6 +35,7 @@
 [ext_resource type="Script" uid="uid://bhxn7lo3af66" path="res://scenes/ui/pause_ui.gd" id="33_xnc3g"]
 [ext_resource type="Script" uid="uid://vhs6pe358b6p" path="res://scenes/ui/death_ui.gd" id="34_2e4ic"]
 [ext_resource type="PackedScene" uid="uid://cerftmdty73wk" path="res://scenes/ui/boss_timer.tscn" id="36_bosstimer"]
+[ext_resource type="PackedScene" path="res://scenes/objects/owl.tscn" id="37_owl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tile"]
 size = Vector2(64, 64)
@@ -839,7 +840,7 @@ scale = Vector2(0.16223091, 0.16765684)
 texture = ExtResource("17_0fsyh")
 
 [node name="Player" parent="Terrain/Ground" unique_id=1775000001 instance=ExtResource("16_os2dc")]
-position = Vector2(-375, -74)
+position = Vector2(-376, -95)
 
 [node name="PoisonIvy" type="Sprite2D" parent="Terrain/Ground" unique_id=1573595330]
 position = Vector2(-297, 229)
@@ -867,6 +868,9 @@ patrol_right = 150.0
 position = Vector2(578, -747)
 patrol_left = -150.0
 patrol_right = 150.0
+
+[node name="Owl" parent="." unique_id=1495778725 instance=ExtResource("37_owl")]
+position = Vector2(-4325, -2430)
 
 [node name="TerrainStoneCloudRight" type="Sprite2D" parent="." unique_id=1506691030]
 position = Vector2(-3034, -2099)
@@ -1138,6 +1142,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BossTimer" parent="." unique_id=1107376492 instance=ExtResource("36_bosstimer")]
+survive_time = 20.0
 level_index = 2
 
 [node name="DeathUI" type="CanvasLayer" parent="." unique_id=1996567180]

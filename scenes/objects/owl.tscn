@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/objects/owl.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/squirrel/flight1.png" id="2_flap"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_body"]
+radius = 48.0
+
+[node name="Owl" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_script")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.126, 0.126)
+texture = ExtResource("2_flap")
+offset = Vector2(-18, -169)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_body")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_body")
