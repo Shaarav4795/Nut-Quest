@@ -16,8 +16,10 @@ extends CharacterBody2D
 @export var max_idle_time := 2.0
 
 @export_group("Art")
-@export var walk_texture: Texture2D = preload("res://assets/squirrel/echidna_walk.png")
-@export var stand_texture: Texture2D = preload("res://assets/squirrel/echidna_stand.png")
+@export var stand_texture: Texture2D = preload("res://assets/squirrel/hedge_stand.png")
+@export var walk_frame_a: Texture2D = preload("res://assets/squirrel/hedge_walk_1.png")
+@export var walk_frame_b: Texture2D = preload("res://assets/squirrel/hedge_walk_2.png")
+@export var walk_frame_time := 0.16
 
 @onready var sprite: Sprite2D = $Sprite
 @onready var ledge_check: RayCast2D = $LedgeCheck
@@ -29,6 +31,8 @@ var _state: State = State.IDLE
 var _timer := 0.0
 var _dir := 1
 var _home_x := 0.0
+var _frame := 0
+var _frame_timer := 0.0
 
 
 func _ready() -> void:
@@ -60,6 +64,13 @@ func _physics_process(delta: float) -> void:
 
 	sprite.flip_h = _dir > 0.0
 
+	if _state == State.WALK:
+		_frame_timer += delta
+		if _frame_timer >= walk_frame_time:
+			_frame_timer -= walk_frame_time
+			_frame = 1 - _frame
+			sprite.texture = walk_frame_a if _frame == 0 else walk_frame_b
+
 
 func _ground_ahead() -> bool:
 	ledge_check.position.x = _dir * 34.0
@@ -79,7 +90,9 @@ func _enter(next: State) -> void:
 	if _state == State.WALK:
 		_dir = 1 if randf() < 0.5 else -1
 		_timer = randf_range(min_walk_time, max_walk_time)
-		sprite.texture = walk_texture
+		_frame = 0
+		_frame_timer = 0.0
+		sprite.texture = walk_frame_a
 	else:
 		_timer = randf_range(min_idle_time, max_idle_time)
 		sprite.texture = stand_texture

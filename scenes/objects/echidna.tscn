@@ -1,35 +1,34 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://d3r2oljdqjlfr"]
 
-[ext_resource type="Script" path="res://scenes/objects/echidna.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/squirrel/echidna_stand.png" id="2_stand"]
+[ext_resource type="Script" uid="uid://jr2b4oq8eyy2" path="res://scenes/objects/echidna.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bwo5ksprd8kk2" path="res://assets/squirrel/hedge_stand.png" id="2_03ieu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_body"]
 radius = 34.0
 
-[node name="Echidna" type="CharacterBody2D"]
+[node name="Echidna" type="CharacterBody2D" unique_id=129537147]
 collision_layer = 4
-collision_mask = 1
 script = ExtResource("1_script")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.16, 0.16)
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1673881700]
+position = Vector2(5.1999984, 0)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("2_03ieu")
 centered = false
 offset = Vector2(-256, -512)
-texture = ExtResource("2_stand")
 
-[node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(0, -34)
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1488655057]
+position = Vector2(7, -32)
 shape = SubResource("CircleShape2D_body")
 
-[node name="LedgeCheck" type="RayCast2D" parent="."]
+[node name="LedgeCheck" type="RayCast2D" parent="." unique_id=627407643]
 position = Vector2(0, -6)
 target_position = Vector2(0, 20)
-collision_mask = 1
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1020311462]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, -34)
+[node name="CollisionShape" type="CollisionShape2D" parent="Hurtbox" unique_id=1521966037]
+position = Vector2(7, -32)
 shape = SubResource("CircleShape2D_body")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcxowcbqa4ae0"
-path="res://.godot/imported/squirrelstand.png-cadf1b6ee03e31974d39a20c26a5d6ab.ctex"
+uid="uid://dr6hkd8lhatk"
+path="res://.godot/imported/hedge_walk_1.png-07004892a0a4a615cad184afd74775d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/squirrel/squirrelstand.png"
-dest_files=["res://.godot/imported/squirrelstand.png-cadf1b6ee03e31974d39a20c26a5d6ab.ctex"]
+source_file="res://assets/squirrel/hedge_walk_1.png"
+dest_files=["res://.godot/imported/hedge_walk_1.png-07004892a0a4a615cad184afd74775d1.ctex"]
 
 [params]
 
