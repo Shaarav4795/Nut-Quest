@@ -103,8 +103,8 @@ script = ExtResource("1_62eb7")
 [node name="Background" type="Node2D" parent="Terrain" unique_id=1305918895]
 
 [node name="BackgroundSolidSky" type="Sprite2D" parent="Terrain/Background" unique_id=272952460]
-position = Vector2(-1591.8093, -1214)
-scale = Vector2(50.197266, 14.1015625)
+position = Vector2(-1591.8093, -1362)
+scale = Vector2(50.197266, 21.328125)
 texture = ExtResource("2_q5iha")
 
 [node name="BackgroundClouds" type="Sprite2D" parent="Terrain/Background" unique_id=1610620221]
