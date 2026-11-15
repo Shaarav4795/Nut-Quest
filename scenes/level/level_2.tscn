@@ -382,7 +382,7 @@ position = Vector2(2598, -887)
 texture = ExtResource("15_j3d2j")
 
 [node name="Player" parent="Terrain/Ground" unique_id=1775000001 instance=ExtResource("16_j44rl")]
-position = Vector2(843, 125)
+position = Vector2(991, 20)
 
 [node name="TerrainGrassCloudMiddle5" type="Sprite2D" parent="Terrain/Ground" unique_id=804361191]
 position = Vector2(2662, -887)
