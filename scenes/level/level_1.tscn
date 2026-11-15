@@ -7,12 +7,18 @@
 [ext_resource type="Texture2D" uid="uid://dyuo5vep05da1" path="res://assets/Sprites/Backgrounds/Default/background_clouds.png" id="3_swapm"]
 [ext_resource type="Texture2D" uid="uid://drk114v4crrqs" path="res://assets/Sprites/Backgrounds/Default/background_fade_trees.png" id="4_hkufj"]
 [ext_resource type="Texture2D" uid="uid://elry8618d3d3" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_bottom_right.png" id="4_lkxmd"]
+[ext_resource type="Texture2D" uid="uid://bgumm83qc4pvi" path="res://assets/Sprites/Tiles/Default/sign_exit.png" id="5_l0s6l"]
 [ext_resource type="Texture2D" uid="uid://cfap2jjnmhpbw" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_bottom_left.png" id="5_vigbq"]
+[ext_resource type="Texture2D" uid="uid://vca7x6xw0s8g" path="res://assets/Sprites/Tiles/Default/sign_left.png" id="6_7mv57"]
 [ext_resource type="Texture2D" uid="uid://dhxm6jcr53rqp" path="res://assets/Sprites/Tiles/Default/terrain_grass_block_bottom.png" id="6_g6sy5"]
+[ext_resource type="Texture2D" uid="uid://unvf37qa3v2s" path="res://assets/Sprites/Tiles/Default/sign_right.png" id="7_mw0mw"]
 [ext_resource type="Texture2D" uid="uid://dj4xu3pkn6edx" path="res://assets/Sprites/Tiles/Default/terrain_grass_cloud.png" id="7_q27gu"]
 [ext_resource type="Texture2D" uid="uid://d064k4surmhgd" path="res://assets/Sprites/Tiles/Default/terrain_grass_horizontal_overhang_left.png" id="8_m3417"]
+[ext_resource type="Texture2D" uid="uid://cwy6ts1jx0cj5" path="res://assets/Sprites/Tiles/Double/mushroom_brown.png" id="8_pbljq"]
 [ext_resource type="Texture2D" uid="uid://ddpxmkgt104od" path="res://assets/Sprites/Tiles/Default/terrain_grass_horizontal_middle.png" id="9_0alxl"]
+[ext_resource type="Texture2D" uid="uid://ri2y0ntulkal" path="res://assets/Sprites/Tiles/Default/mushroom_brown.png" id="9_6yqvs"]
 [ext_resource type="Texture2D" uid="uid://cv3ls85lquqqc" path="res://assets/Sprites/Tiles/Default/terrain_grass_horizontal_overhang_right.png" id="10_8uvjh"]
+[ext_resource type="Texture2D" uid="uid://chq3gj66sse5k" path="res://assets/Sprites/Tiles/Double/mushroom_red.png" id="10_dyfvh"]
 [ext_resource type="Texture2D" uid="uid://bhywffii7y2s4" path="res://assets/Sprites/Tiles/Default/terrain_grass_block.png" id="11_vigbq"]
 [ext_resource type="Texture2D" uid="uid://ewn8hx5yl7d5" path="res://assets/Sprites/Tiles/Default/terrain_grass_cloud_right.png" id="12_g6sy5"]
 [ext_resource type="Texture2D" uid="uid://bcxxwvv7dqn4i" path="res://assets/Sprites/Tiles/Default/terrain_grass_cloud_middle.png" id="13_q27gu"]
@@ -26,7 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://dyq5tthm4g0ye" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_middle.png" id="21_8e0j7"]
 [ext_resource type="Script" uid="uid://1giq0ktskn53" path="res://scenes/level/level_1.gd" id="21_level"]
 [ext_resource type="Texture2D" uid="uid://dl0gc8nyfh7fj" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_top.png" id="22_13hc6"]
-[ext_resource type="PackedScene" uid="uid://d3r2oljdqjlfr" path="res://scenes/objects/echidna.tscn" id="23_echidna"]
+[ext_resource type="PackedScene" path="res://scenes/objects/echidna.tscn" id="23_echidna"]
 [ext_resource type="PackedScene" path="res://scenes/objects/llama.tscn" id="24_llama"]
 [ext_resource type="Texture2D" uid="uid://byjvxw4sw0mr2" path="res://assets/squirrel/slingshot.png" id="28_rfyx5"]
 [ext_resource type="Script" uid="uid://nxseusgdwfc3" path="res://scenes/objects/slingshot.gd" id="29_slingshot"]
@@ -35,7 +41,7 @@
 [ext_resource type="Script" uid="uid://bhxn7lo3af66" path="res://scenes/ui/pause_ui.gd" id="32_pauseui"]
 [ext_resource type="Script" uid="uid://vhs6pe358b6p" path="res://scenes/ui/death_ui.gd" id="33_deathui"]
 [ext_resource type="PackedScene" uid="uid://bc7c0popa7fy1" path="res://scenes/objects/timer.tscn" id="34_0wlyu"]
-[ext_resource type="PackedScene" path="res://scenes/ui/boss_timer.tscn" id="34_bosstimer"]
+[ext_resource type="PackedScene" uid="uid://cerftmdty73wk" path="res://scenes/ui/boss_timer.tscn" id="34_bosstimer"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(447, 128)
@@ -79,7 +85,7 @@ corner_radius_top_right = 24
 corner_radius_bottom_right = 24
 corner_radius_bottom_left = 24
 
-[node name="level_1" type="Node2D" unique_id=1230994277]
+[node name="level_2" type="Node2D" unique_id=1230994277]
 position = Vector2(54, 427)
 script = ExtResource("21_level")
 
@@ -136,6 +142,30 @@ texture = ExtResource("4_hkufj")
 position = Vector2(5806.9995, -229.00003)
 scale = Vector2(7.11, 5.369)
 texture = ExtResource("4_hkufj")
+
+[node name="SignExit" type="Sprite2D" parent="Terrain/Background" unique_id=1014937719]
+position = Vector2(1580, -1615)
+texture = ExtResource("5_l0s6l")
+
+[node name="SignLeft" type="Sprite2D" parent="Terrain/Background" unique_id=617483274]
+position = Vector2(773, -712)
+texture = ExtResource("6_7mv57")
+
+[node name="SignRight" type="Sprite2D" parent="Terrain/Background" unique_id=1968401860]
+position = Vector2(-1107, -1246)
+texture = ExtResource("7_mw0mw")
+
+[node name="MushroomBrown" type="Sprite2D" parent="Terrain/Background" unique_id=387529850]
+position = Vector2(266, -1404)
+texture = ExtResource("8_pbljq")
+
+[node name="MushroomBrown2" type="Sprite2D" parent="Terrain/Background" unique_id=1310788477]
+position = Vector2(-1775, -811)
+texture = ExtResource("9_6yqvs")
+
+[node name="MushroomRed" type="Sprite2D" parent="Terrain/Background" unique_id=1271034696]
+position = Vector2(-1412, -715)
+texture = ExtResource("10_dyfvh")
 
 [node name="Ground" type="Node2D" parent="Terrain" unique_id=1039308314]
 
@@ -1343,3 +1373,22 @@ offset_bottom = 240.0
 text = "EXIT"
 
 [node name="timer" parent="." unique_id=2073159215 instance=ExtResource("34_0wlyu")]
+
+[node name="PoisonIvy" type="Sprite2D" parent="." unique_id=1973263307]
+position = Vector2(74, -557)
+scale = Vector2(0.5950704, 0.601227)
+texture = ExtResource("16_q27gu")
+
+[node name="PoisonIvy2" type="Sprite2D" parent="." unique_id=1009205894]
+position = Vector2(-565, -608.99994)
+rotation = -0.62133723
+scale = Vector2(0.6373239, 0.6165644)
+texture = ExtResource("16_q27gu")
+
+[node name="MushroomBrown" type="Sprite2D" parent="." unique_id=888339120]
+position = Vector2(-535, -1264)
+texture = ExtResource("9_6yqvs")
+
+[node name="MushroomRed" type="Sprite2D" parent="." unique_id=1246870364]
+position = Vector2(-125, -1410)
+texture = ExtResource("10_dyfvh")
