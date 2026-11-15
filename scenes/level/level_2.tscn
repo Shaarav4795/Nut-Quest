@@ -831,6 +831,9 @@ shape = SubResource("RectangleShape2D_eyu71")
 position = Vector2(916.25, 313.25)
 shape = SubResource("RectangleShape2D_wf3qn")
 
+[node name="LaunchTarget" type="Marker2D" parent="Terrain/Ground" unique_id=1900000004]
+position = Vector2(160, -72)
+
 [node name="Echidna" parent="." unique_id=1982091274 instance=ExtResource("24_mssae")]
 position = Vector2(2685, -922)
 patrol_left = -150.0
@@ -845,3 +848,195 @@ patrol_right = 150.0
 position = Vector2(682, -706)
 patrol_left = -150.0
 patrol_right = 150.0
+
+[node name="Slingshot" type="Node2D" parent="." unique_id=1900000001]
+position = Vector2(1000, 160)
+scale = Vector2(0.175, 0.175)
+script = ExtResource("30_sling")
+
+[node name="Art" type="Sprite2D" parent="Slingshot" unique_id=1900000002]
+position = Vector2(-114.285645, 0)
+texture = ExtResource("35_slingart")
+flip_h = true
+
+[node name="Muzzle" type="Marker2D" parent="Slingshot" unique_id=1900000003]
+position = Vector2(-57.1, -777.1)
+
+[node name="LaunchUI" type="CanvasLayer" parent="." unique_id=1900000005]
+script = ExtResource("31_launchui")
+
+[node name="Root" type="Control" parent="LaunchUI" unique_id=1900000006]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("32_theme")
+
+[node name="LaunchButton" type="Button" parent="LaunchUI/Root" unique_id=1900000007]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 466.0
+offset_right = 984.0
+offset_bottom = 526.0
+text = "LAUNCH"
+
+[node name="Subtitle" type="Label" parent="LaunchUI/Root" unique_id=1900000008]
+visible = false
+layout_mode = 0
+offset_left = 322.0
+offset_top = 480.0
+offset_right = 702.0
+offset_bottom = 526.0
+theme_override_colors/font_color = Color(1, 0.96, 0.88, 1)
+theme_override_colors/font_outline_color = Color(0.12, 0.08, 0.04, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
+text = "Bounce back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseUI" type="CanvasLayer" parent="." unique_id=1900000009]
+script = ExtResource("33_pauseui")
+
+[node name="Root" type="Control" parent="PauseUI" unique_id=1900000010]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("32_theme")
+
+[node name="BackButton" type="Button" parent="PauseUI/Root" unique_id=1900000011]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 174.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 24
+text = "BACK"
+
+[node name="Overlay" type="Control" parent="PauseUI/Root" unique_id=1900000012]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="PauseUI/Root/Overlay" unique_id=1900000013]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="Panel" type="Panel" parent="PauseUI/Root/Overlay" unique_id=1900000014]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 148.0
+offset_right = 752.0
+offset_bottom = 428.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pause")
+
+[node name="PauseTitle" type="Label" parent="PauseUI/Root/Overlay/Panel" unique_id=1900000015]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 456.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.95, 0.79, 0.52, 1)
+theme_override_font_sizes/font_size = 42
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseUI/Root/Overlay/Panel" unique_id=1900000016]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 104.0
+offset_right = 380.0
+offset_bottom = 164.0
+text = "RESUME"
+
+[node name="ExitButton" type="Button" parent="PauseUI/Root/Overlay/Panel" unique_id=1900000017]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 180.0
+offset_right = 380.0
+offset_bottom = 240.0
+text = "EXIT"
+
+[node name="DeathUI" type="CanvasLayer" parent="." unique_id=1900000018]
+script = ExtResource("34_deathui")
+
+[node name="Root" type="Control" parent="DeathUI" unique_id=1900000019]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("32_theme")
+
+[node name="Overlay" type="Control" parent="DeathUI/Root" unique_id=1900000020]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="DeathUI/Root/Overlay" unique_id=1900000021]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="Panel" type="Panel" parent="DeathUI/Root/Overlay" unique_id=1900000022]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 148.0
+offset_right = 752.0
+offset_bottom = 428.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pause")
+
+[node name="DeathTitle" type="Label" parent="DeathUI/Root/Overlay/Panel" unique_id=1900000023]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 456.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.95, 0.5, 0.4, 1)
+theme_override_font_sizes/font_size = 42
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RespawnButton" type="Button" parent="DeathUI/Root/Overlay/Panel" unique_id=1900000024]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 104.0
+offset_right = 380.0
+offset_bottom = 164.0
+text = "RESPAWN"
+
+[node name="ExitButton" type="Button" parent="DeathUI/Root/Overlay/Panel" unique_id=1900000025]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 180.0
+offset_right = 380.0
+offset_bottom = 240.0
+text = "EXIT"
