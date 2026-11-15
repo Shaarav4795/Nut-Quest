@@ -26,8 +26,13 @@
 [ext_resource type="Texture2D" uid="uid://ufwghdd2xi2j" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_bottom.png" id="21_wihf4"]
 [ext_resource type="Texture2D" uid="uid://dyq5tthm4g0ye" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_middle.png" id="22_dcqiu"]
 [ext_resource type="Texture2D" uid="uid://dl0gc8nyfh7fj" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_top.png" id="23_n7x2s"]
-[ext_resource type="PackedScene" path="res://scenes/objects/echidna.tscn" id="24_7oop7"]
+[ext_resource type="PackedScene" uid="uid://d3r2oljdqjlfr" path="res://scenes/objects/echidna.tscn" id="24_7oop7"]
 [ext_resource type="PackedScene" uid="uid://bc7c0popa7fy1" path="res://scenes/objects/timer.tscn" id="28_nlhay"]
+[ext_resource type="Script" uid="uid://nxseusgdwfc3" path="res://scenes/objects/slingshot.gd" id="29_wgaue"]
+[ext_resource type="Texture2D" uid="uid://byjvxw4sw0mr2" path="res://assets/squirrel/slingshot.png" id="30_gf5ec"]
+[ext_resource type="Theme" uid="uid://cyu7dpmmhmns" path="res://scenes/ui/ui_theme.tres" id="32_4yg68"]
+[ext_resource type="Script" uid="uid://bhxn7lo3af66" path="res://scenes/ui/pause_ui.gd" id="33_xnc3g"]
+[ext_resource type="Script" uid="uid://vhs6pe358b6p" path="res://scenes/ui/death_ui.gd" id="34_2e4ic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(447, 128)
@@ -61,6 +66,30 @@ size = Vector2(573.5, 55.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p24j1"]
 size = Vector2(2047, 54)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4xu7"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.68, 0.42, 0.5)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_os2dc"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.68, 0.42, 0.5)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
 
 [node name="level_1" type="Node2D" unique_id=1230994277]
 position = Vector2(54, 427)
@@ -907,3 +936,157 @@ position = Vector2(-437, -1314)
 shape = SubResource("RectangleShape2D_3xmp0")
 
 [node name="timer" parent="." unique_id=2073159215 instance=ExtResource("28_nlhay")]
+
+[node name="Slingshot" type="Node2D" parent="." unique_id=1075870645]
+position = Vector2(-361.99997, 37.999985)
+scale = Vector2(0.175, 0.175)
+script = ExtResource("29_wgaue")
+
+[node name="Art" type="Sprite2D" parent="Slingshot" unique_id=278772533]
+texture = ExtResource("30_gf5ec")
+
+[node name="Muzzle" type="Marker2D" parent="Slingshot" unique_id=434200601]
+position = Vector2(-57.1, -777.1)
+
+[node name="PauseUI" type="CanvasLayer" parent="." unique_id=826077096]
+script = ExtResource("33_xnc3g")
+
+[node name="Root" type="Control" parent="PauseUI" unique_id=1947729299]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("32_4yg68")
+
+[node name="BackButton" type="Button" parent="PauseUI/Root" unique_id=484858893]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 20.0
+offset_right = 174.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 24
+text = "BACK"
+
+[node name="Overlay" type="Control" parent="PauseUI/Root" unique_id=486433547]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="PauseUI/Root/Overlay" unique_id=1773469471]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="Panel" type="Panel" parent="PauseUI/Root/Overlay" unique_id=1479391685]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 148.0
+offset_right = 752.0
+offset_bottom = 428.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_s4xu7")
+
+[node name="PauseTitle" type="Label" parent="PauseUI/Root/Overlay/Panel" unique_id=406560390]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 456.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.95, 0.79, 0.52, 1)
+theme_override_font_sizes/font_size = 42
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseUI/Root/Overlay/Panel" unique_id=1743829195]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 104.0
+offset_right = 380.0
+offset_bottom = 164.0
+text = "RESUME"
+
+[node name="ExitButton" type="Button" parent="PauseUI/Root/Overlay/Panel" unique_id=1501487191]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 180.0
+offset_right = 380.0
+offset_bottom = 240.0
+text = "EXIT"
+
+[node name="DeathUI" type="CanvasLayer" parent="." unique_id=1996567180]
+script = ExtResource("34_2e4ic")
+
+[node name="Root" type="Control" parent="DeathUI" unique_id=2085360515]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("32_4yg68")
+
+[node name="Overlay" type="Control" parent="DeathUI/Root" unique_id=510279232]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="DeathUI/Root/Overlay" unique_id=490587219]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="Panel" type="Panel" parent="DeathUI/Root/Overlay" unique_id=1388651376]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 148.0
+offset_right = 752.0
+offset_bottom = 428.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_os2dc")
+
+[node name="DeathTitle" type="Label" parent="DeathUI/Root/Overlay/Panel" unique_id=1791790003]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 456.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.95, 0.5, 0.4, 1)
+theme_override_font_sizes/font_size = 42
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RespawnButton" type="Button" parent="DeathUI/Root/Overlay/Panel" unique_id=1949485100]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 104.0
+offset_right = 380.0
+offset_bottom = 164.0
+text = "RESPAWN"
+
+[node name="ExitButton" type="Button" parent="DeathUI/Root/Overlay/Panel" unique_id=1172600167]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 180.0
+offset_right = 380.0
+offset_bottom = 240.0
+text = "EXIT"
