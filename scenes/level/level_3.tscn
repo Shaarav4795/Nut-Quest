@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dyq5tthm4g0ye" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_middle.png" id="22_dcqiu"]
 [ext_resource type="Texture2D" uid="uid://dl0gc8nyfh7fj" path="res://assets/Sprites/Tiles/Default/terrain_grass_vertical_top.png" id="23_n7x2s"]
 [ext_resource type="PackedScene" path="res://scenes/objects/echidna.tscn" id="24_7oop7"]
+[ext_resource type="PackedScene" uid="uid://bc7c0popa7fy1" path="res://scenes/objects/timer.tscn" id="28_nlhay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ground"]
 size = Vector2(447, 128)
@@ -904,3 +905,5 @@ texture = ExtResource("23_n7x2s")
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="." unique_id=1462420871]
 position = Vector2(-437, -1314)
 shape = SubResource("RectangleShape2D_3xmp0")
+
+[node name="timer" parent="." unique_id=2073159215 instance=ExtResource("28_nlhay")]
